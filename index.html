@@ -4,336 +4,173 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css">
+
     <title>Xwegbe - Accueil</title>
 </head>
 <body>
-    <header class="header">
-        <div class="header__top">
-            <img src="public/images/Logo XW X XWEGBE.png" alt="" class="logo">
-
-            <ul class="menu">
-                <li class="menu__link">
-                    <a href="#" class="menu__link__item">
-                        <i class="fas fa-home"></i>
-                        Accueil
-                    </a>
-                </li>
-                <li class="menu__link">
-                    <a href="gallery.html" class="menu__link__item">
-                        Galerie photos
-                    </a>
-                </li>
-                
-                <li class="menu__link">
-                    <a href="appartements.html" class="menu__link__item">
-                        Appartements
-                    </a>
-                </li>
     
-                <li class="menu__link">
-                    <a href="equipements.html" class="menu__link__item">
-                        Equipements
-                    </a>
-                </li>
-                
-                <li class="menu__link">
-                    <a href="about.html" class="menu__link__item">
-                        Qui sommes nous ?
-                    </a>
-                </li>
-    
-                <li class="menu__link">
-                    <a href="contact.html" class="menu__link__item">
-                        contact
-                    </a>
-                </li>
-            </ul>
-        </div>
+   <div class="container">
+        <div class="top">
+            <nav>
 
-        <p class="header__title">Bienvenue sur <span>Xwegbe !</span></p>
+            </nav>
 
-        <div class="search">
-            <p class="search__title">Les champs obligatoires sont suivis de *</p>
+            <h1>Bienvenue sur <span>XWEGBE !</span></h1>
 
-            <form class="search__form">
-                <div class="search__form__details">
-                    <label for="arrival">
-                        Arrivee: <br>
-                        <input type="date" placeholder="Arrivee *">
+            <form action="" class="top__research-form">
+                    <label class="top__research-form__label">
+                        Date d'arrivée: <br>
+                        <input type="date" placeholder="Arrivée*" name="arrival_date">
                     </label>
 
-                    <label for="departure">
-                        Depart: <br>
-                        <input type="date" placeholder="Depart *">
+                    <label class="top__research-form__label">
+                        Date de départ: <br>
+                        <input type="date" placeholder="Départ*" name="departure_date">
                     </label>
 
-                    <label for="adults">
-                        adultes:  <br>
-                        <select name="adults__number" id="" aria-placeholder="Adultes">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    
-                        <label for="adults">
-                           
-                            <select name="adults__number" id="" aria-placeholder="Adultes">
+                    <label class="top__research-form__label">
+                        Nonbre de personnes: <br>
+                        <select  name="number_of_people" id="">
+                                <option value="">Sélectionner</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
-                            </select>
-                </div>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                        </select>
+                    </label>
 
-                <button type="submit" class="search__form__btn">
-                    Verifier la disponibilite
-                    <i class="fas fa-search"></i>
+                <button type="submit" class="top__research-form__submit">
+                    Vérifier la disponibilité <i></i>
                 </button>
             </form>
         </div>
-    </header>
 
-    <div class="container">
+        <div class="about-section">
+            <h2 class="about-section__title">
+                Xwegbe, 1er catalogue d'appartements meublés au Bénin
+            </h2>
 
-        <h1>XWEGBE, 1ER catalogue d'appartements meubles au Benin</h1>
-        <div class="about">
-            <div class="about__pic">
-                <div class="about__pic__background"></div>
-                <img src="public/images/pic1.jpg" alt="" class="about__pic__image">
-            </div>
+            <div class="about-section__content">
+                <div class="about-section__content__picture">
+                    <div class="background">
+                        <img src="public/images/xwegbe.jpeg" alt="">
+                    </div>
+                </div>
+    
+                <div class="about-section__content__details">
+                            <img src="public/icons/people.svg" alt="">
+    
+                            <h3 class="title">
+                                Qui sommes nous ?
+                            </h3>
+    
+                            <p class="text">
+                                Lorem ipsum dolor sit amet consectetur, 
+                                adipisicing elit. Culpa consequatur rerum 
+                                debitis voluptatem optio vel eligendi maiores 
+                                mollitia sed ut accusantium sint quod aperiam 
+                                aut unde, doloribus aspernatur repellat quis!
+                            </p>
 
-            <div class="about__text">
-                <i class="fas fa-users"></i>
-
-                <h2>Qui sommes nous ?</h2>
-
-                <p>
-                    Xwegbe est une jeune entreprise beninoise qui vous
-                    propose depuis 2008 des appartements meubles pour vous
-                    sejours au Benin.
-                </p>
-            
-                <button class="about__text__link">
-                    <a href="about.html">
-                        En savoir plus
-                    </a>
-                </button>
+                            <button class="link">
+                                <a href="a-propos.php">En savoir plus</a>
+                            </button>
+                </div>
             </div>
         </div>
+
+        <div class="reasons-section">
+            <h2 class="reasons-section__title">
+                Xwegbe, 1er catalogue d'appartements meublés au Bénin
+            </h2>
+
+            <div class="reasons-section__content">
+                <div class="reasons-section__content__details">
+                    <img src="public/icons/hand.svg" alt="">
+
+                    <h3 class="title">
+                        Pourquoi nous choisir ? 
+                    </h3>
+
+                    <p class="text">
+                        Lorem ipsum dolor sit amet consectetur, 
+                        adipisicing elit. Culpa consequatur rerum 
+                        debitis voluptatem optio vel eligendi maiores 
+                        mollitia sed ut accusantium sint quod aperiam 
+                        aut unde, doloribus aspernatur repellat quis!
+                    </p>
+
+                    <button class="link">
+                        <a href="appartements.php">En savoir plus</a>
+                    </button>
+                </div>
+
+                <div class="reasons-section__content__picture">
+                    <div class="background">
+                        <img src="public/images/xwegbe.jpeg" alt="">
+                    </div>
+                </div>
+    
+              
+            </div>
+        </div>
+   </div>
 
        
- <!--
-        <div class="appartements">
-            <div class="appartements__slider">
-                <i></i>
-                <div class="appartements__slider__infos">
-                    A partir de  <br> 40.000 FCFA par nuit
-                </div>
-
-                <img src="" alt="" class="appartements__slider__image">
-
-                <h3>
-                    Sublime appartement lumineux idealement situe
-                </h3>
-
-                <p class="appartement__slider__details">
-                    Details
-                </span>
-
-                <span class="people">
-                    Adultes: 3 - Enfants: 3
-                </span>
-
-                <div class="equipements">
-                    <span>Equipements :</span> Climatisation-Entree privee
-                    -fer a repasser-four a micro onde-parking gratuit-refrigirateur
-                    -seche cheveux-television, vaisselle et couverts
-                </div>
-            </div>
-        </div>
-    -->
-    <div class="testimony">
-        <!-- Slideshow container -->
-<div class="slideshow-container">
-
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-        <img src="public/images/pic1.jpg" alt="">
-        <p> Ma famille et moi vous disons merci, on a passe une 
-            bonne semaine. Merci beaucoup pour votre attention et votre
-            gentillesse. Cela nous a fait chaud au coeur <br>
-            Iris <br>
-            <span>Cliente satisfatite</span>
-        </p>
-
-    </div>
-  
-    <div class="mySlides fade">
-        <img src="public/images/hero.jpg" alt="">
-        <p> Merci, Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore sunt consequuntur minus officia magni eveniet in. Quod non debitis iure amet cupiditate dolor ipsam quam odit nemo assumenda! Totam, nemo. <br>
-            <span>Cliente satisfatite</span>
-        </p>
-    </div>
-  
-    <div class="mySlides fade">
-        <img src="public/images/pic1.jpg" alt="">
-        <p> Ma famille et moi vous disons merci, on a passe une 
-            bonne semaine. Merci beaucoup pour votre attention et votre
-            gentillesse. Cela nous a fait chaud au coeur <br>
-            Iris <br>
-            <span>Cliente satisfatite</span>
-        </p>
-    </div>
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-  
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
-    </div>
-
-        <h2>Pourquoi nous choisir ?</h2>
-        <div class="reasons">
-            <div class="reasons__text">
-                <i class="fas fa-handshake" id="reasons-icon"></i> <br>
-
-                <p>Dans nos appartements vous vous sentirez
-                comme chez vous. Entre autres equipements
-                vous disposez de: <br>
-                <i class="fas fa-check"></i>La machine a laver <br>
-                <i class="fas fa-check"></i>La climatisation <br>
-                <i class="fas fa-check"></i>Le parking prive <br>
-                <i class="fas fa-check"></i>Wifi, eau et electricte inclus</p> <br>
-
-                <button class="reasons__text__btn">
-                    <a href="reservations">
-                        Reservez ici
-                    </a>
-                </button>
-            </div>
-
-            <div class="reasons__pic">
-                <img src="public/images/pic1.jpg" alt="" class="reasons__pic__image">
-                <div class="reasons__pic__background"></div>
-            </div>
-        </div>
-
-        <h2>Galerie photos</h2>
-
-        <p>Que vous soyez seul ou accompagne, optez pour XWEGBE <br>
-        Avec nous vous serez forcement satisfaits</p>
         
-        <div class="slider">
+        <footer class="footer">
+            <div class="footer__top">
 
-        </div>
+            </div>
 
-        <div class="slider-background"></div>
-    </div>
+            <div class="footer__bottom">
+               <div class="footer__bottom__infos">
+                   <div class="footer-logo">
+                       <img src="public/images/logo.png" alt="">
+                   </div>
 
-    <footer class="footer">
-        <div class="footer__about">
-            <div class="footer__about__logo">
-                <img src="public/images/Logo XW X XWEGBE.png" alt="">
+                   <div class="footer-adress">
+                       <img src="public/icons/map.svg" alt=""> 
+                       <p>
+                        Cotonou, adresse
+                       </p>
+                   </div>
+
+                   <div class="footer-contact">
+                    <img src="public/icons/map.svg" alt=""> 
+                    <p>67 0000000</p>
+                </div>
+               </div>
+
+                <div class="footer__bottom__menu">
+                    <h3>
+                        Liens rapides
+                    </h3>
+
+                    <ul>
+                        <li>
+                            <a href="index.php">Qui sommes nous ?</a>
+                        </li>
+
+                        <li>
+                            <a href="index.php">Appartements</a>
+                        </li>
+
+                        
+
+                        <li>
+                            <a href="index.php">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <p class="footer__about__text">
-                1er catalogue d'appartements <br> meubles
-                 au Benin
-            </p>
+            <hr>
 
-            <div class="footer__about__adress">
-                <i class="fas fa-map-marker-alt"></i>
-                Cotonou 45
-            </div>
-
-            <div class="footer__about__phone">
-                <i class="fas fa-phone-alt"></i>
-                +229 52 74 90 09
-            </div>
-
-            <div class="footer__about__email">
-                <i class="fas fa-envelope"></i>
-                contact@xwegbe.com
-            </div>
-        </div>
-
-        <div class="footer__sitemap">
-            <h3>Plan du site</h3>
-
-            <ul class="footer__sitemap__menu">
-                <li>
-                    <a href="index.html">Accueil</a>
-                </li>
-
-                <li>
-                    <a href="appartements.html">Appartements</a>
-                </li>
-
-                <li>
-                    <a href="equipements.html">Equipements</a>
-                </li>
-
-                <li>
-                    <a href="gallery.html">Galerie photos</a>
-                </li>
-
-                <li>
-                    <a href="about.html">Qui sommes nous ?</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer__entreprise">
-            <h3>Mentions legales</h3>
-
-            <ul class="footer__entreprise__menu">
-                <li>
-                    <a href="mentions.html">Mentions legales</a>
-                </li>
-
-                <li>
-                    <a href="cgv.html">CGV</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="footer__newsletters">
-            <h3>Newsletters</h3>
-
-            <p class="footer__newsletters__text">
-                Entre votre mail et vous serez au <br> courant de nos prochaines
-                actualites
-            </p>
-
-            <label for="email" class="footer__newsletters__btn">
-                <input type="text" placeholder="Votre email">
-                <button type="submit">
-                    <i class="far fa-paper-plane"></i>
-                </button>
-            </label>
-        </div>
-
-        <div class="footer__separator"></div>
-
-        <p class="footer__copyright">
-            Xwegbe, 2021 Tous droits reserves
-        </p>
-    </footer>
+            <p class="footer__copyright">Xwegbe @ 2020 Tous droits réservés</p>
+        </footer>
+    <script src="public/js/script.js" ></script>
 </body>
-<script type="text/javascript" src="script.js"></script>
 </html>
