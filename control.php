@@ -1,21 +1,22 @@
 <?php
-    function add ($appartement_name, $appartement_description, $rooms,
-        $daily_price, $rating, $picture_1,
+    function add ($appartement_name, $rooms,
+    $daily_price, $extract, $appartement_description,  $rating, $picture_1,
         $picture_2, $picture_3, $picture_4, $picture_5, $picture_6){
             if (require("db.php")){
                 $req = $bdd->prepare("INSERT INTO appartements (
-                    appartement_name, appartement_description, 
-                    rooms, daily_price, rating, appartement_status, 
+                    appartement_name, rooms, daily_price, extract,
+                    appartement_description, rating,
                     picture_1, picture_2, picture_3, picture_4, picture_5,
-                    picture_6) VALUES ( $appartement_name, $appartement_description,
-                    $rooms, $daily_price, $rating, 'libre', $picture_1,
+                    picture_6) VALUES ( $appartement_name, $rooms, $daily_price, 
+                     $extract, $appartement_description, $rating, $picture_1,
                     $picture_2, $picture_3, $picture_4, $picture_5, $picture_6 ) ");
 
-                $req -> execute(array($appartement_name, $appartement_description, $rooms,
-                    $daily_price, $rating, $picture_1,
+                $req -> execute(array($appartement_name, $rooms, $daily_price,
+                 $extract, $appartement_description, $rating, $picture_1,
                     $picture_2, $picture_3, $picture_4, $picture_5, $picture_6));
                 
-                $req->closeC=Cursor();
+                
+                echo "appartement ajouté";
 
             }
         }
@@ -31,8 +32,9 @@
 
         function delete($id){
             if (require("db.php")){
-                $req = $bdd->prepare("DELETE * FROM appartements WHERE id = ?");
+                $req = $bdd->prepare("DELETE FROM appartements WHERE id = ?");
                 $req->execute(array($id));
+                echo'appartement supprimé';
             }
         }
 
