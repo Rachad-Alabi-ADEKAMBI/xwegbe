@@ -41,6 +41,7 @@ $white: white;
     text-align: left;
     font-size: bold;
     margin: 10px auto 20px auto;
+    font-size: 1.2em;
 }
 
 @mixin input($background-color: $yellow, $border-color: $yellow){
@@ -48,9 +49,22 @@ width: auto;
 border-radius: 5px;
 font-size: 1.5em;
     height: 40px;
-    font-size: 1.1em;
+    font-size: 1.3em;
     cursor: pointer;
 color: $blue;
+margin: 0 auto;
+background-color: $background-color;
+border-color: $border-color;
+}
+
+@mixin button($color: $white, $background-color: $yellow, $border-color: $yellow){
+width: auto;
+border-radius: 5px;
+font-size: 1.5em;
+    height: 40px;
+    font-size: 1.3em;
+    cursor: pointer;
+color: $color;
 margin: 0 auto;
 background-color: $background-color;
 border-color: $border-color;
@@ -59,10 +73,12 @@ border-color: $border-color;
 @mixin select{
     color: $black;
                 width: auto;
-                height: 42px;
-                margin: 0 auto;
+                height: 38px;
+                margin: 5px auto;
                 cursor: pointer;
                 border: 1px $black solid;
+                border-radius: 5px;
+                font-size: 1.1em;
 }
 
 @mixin image{
@@ -103,12 +119,10 @@ html, body{
     box-sizing: border-box;
 }
 
-
-
 .top{
-    height:400px;
+    height:600px;
     margin: 0 auto;
-    padding-top: 150px;
+    padding-top: 200px;
     display: block;
     width: 100%;
     background-image: 
@@ -139,25 +153,30 @@ html, body{
     &__research-form{
         @include flex;
         width: 70%;
-        margin: 40px auto;
+        margin: 90px auto;
+        background-color: red;
 
         &__label{
             color: $white;
+            margin: auto 20px;
 
             input{
                 @include input($white, $black);
                 color: $black;
+                margin: 5px auto;
+                width: 180px;
             }
 
             select{
                 @include select;
+                width: 180px;
             }
         }
 
         &__submit{
-            margin-top: 17px;
+            margin: auto 20px;
             height: 45px;
-            @include input($yellow, $yellow);
+            @include button($white, $yellow, $yellow);
            
         }
     }
@@ -947,7 +966,6 @@ html, body{
 
         }
     }
-
 
  .footer{
      @include flex(column);

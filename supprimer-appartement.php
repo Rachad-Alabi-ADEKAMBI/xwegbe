@@ -19,7 +19,7 @@
 
             <form action="supprimer.php"  method="POST" class="delete__form">
                     <h1 class="delete__form__title">
-                        Suppression d'appartement
+                        Supprimer un appartement
                     </h1>
 
                     <label for="" class="delete__form__label">
