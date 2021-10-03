@@ -10,7 +10,7 @@
 <head>
     <?php include 'meta.php' ?>
 
-    <title>Xwegbe - Resultats</title>
+    <title>Xwegbe - Resultats de la recherche</title>
 </head>
 <body>
     <div class="container">

@@ -30,6 +30,19 @@
             }
         }
 
+        function display(){
+            if (require("db.php")){
+                $req = $bdd->prepare('SELECT appartement_name, extract,
+                    appartement_description, daily_price, appartment_status
+                    FROM appartements WHERE id= ?');
+                   
+                $req -> execute([$_GET['id']]);
+                
+                $data = $req->fetchAll(PDO::FETCH_OBJ);
+                return $data;
+            }
+        }
+
         function delete($id){
             if (require("db.php")){
                 $req = $bdd->prepare("DELETE FROM appartements WHERE id = ?");

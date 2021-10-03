@@ -1,3 +1,9 @@
+<?php 
+    require 'db.php';
+    require 'control.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,26 +17,42 @@
             <div class="appartment__content">
                 <div class="appartment__content__details">
                     <p><img src="" alt=""> Retour</p>
-                
+
+                    <?php
+
+                    $req = $bdd->prepare('SELECT appartement_name, extract,
+                    appartement_description, daily_price, appartment_status
+                    FROM appartements WHERE id= ?');
+
+                    $req -> execute([$_GET['id']]);
+
+                    while ($appartment = $req->fetch())
+                   {
+                   ?>
+                    
                     <h1 class="appartment_name">
-                        Appartement de 3 pices
+                        <?= $appartment['appartement_name'] ?> 
                     </h1>
 
-                    <p class="extract">
-                        Lorem, ipsum dolor sit amet consectetur 
-                        adipisicing elit. Placeat quo numquam 
-                        earum modi libero sapiente, hic consequatur 
-                        obcaecati fuga optio vel veritatis dolorum 
-                        quae laboriosam dolorem qui quas fugiat quia!
+                    <p class="appartment_extract">
+                    <?= $appartment['extract'] ?> 
                     </p>
 
                     <p class="appartment_description">
-                        Lorem, ipsum dolor sit amet consectetur 
-                        adipisicing elit. Placeat quo numquam 
-                        earum modi libero sapiente, hic consequatur 
-                        obcaecati fuga optio vel veritatis dolorum 
-                        quae laboriosam dolorem qui quas fugiat quia!
+                        <?= $appartment['appartement_description'] ?>
                     </p>
+
+                    <button class="book">
+                        <a href="reservation.php">
+                            Reserver
+                        </a>
+                    </button>
+                <?php
+                }
+                ?>
+
+                    
+
                 </div>
 
                 <div class="appartment__content__form">
@@ -63,19 +85,22 @@
                 </form>
                 </div>
             </div>
-
+<!--
             <div class="appartment__gallery">
                 <div class="appartment__gallery__top">
-                    <img src="public/images/xwegbe.jpeg" alt="">
-                    <img src="public/images/xwegbe2.jpg" alt="">
-                    <img src="public/images/xwegbe.jpeg" alt="">
+                    <img src= <?= $appartment['picture_1'] ?> alt="">
+                    <img src= <?= $appartment['picture_1'] ?>alt="">
+                    <img src= <?= $appartment['picture_1'] ?>alt="">
                 </div>
 
                 <div class="appartment__gallery__bottom">
-                    <img src="public/images/xwegbe2.jpg" alt="">
-                    <img src="public/images/xwegbe.jpeg" alt="">
+                    <img src= <?= $appartment['picture_1'] ?> alt="">
+                    <img src= <?= $appartment['picture_1'] ?> alt="">
                 </div>
+               
             </div>
+->
+                    
        </div>
     </div>
     

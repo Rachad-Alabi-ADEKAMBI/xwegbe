@@ -154,7 +154,6 @@ html, body{
         @include flex;
         width: 70%;
         margin: 90px auto;
-        background-color: red;
 
         &__label{
             color: $white;
@@ -329,7 +328,7 @@ html, body{
 
 .appartments{
     width: 100%;
-    padding-top: 30px;
+    padding-top: 100px;
     @include flex(column);
 
     &__title{
@@ -359,11 +358,12 @@ html, body{
                     font-size: 1.9em;
                     font-weight: 700;
                     width: 90%;
-                    margin: 10px auto 0 auto;
+                    margin: 15px auto 0 0;
                 }
 
                 .daily_price{
                     font-size: 1.1em;
+                    margin-bottom: 10px;
                     color: $black;
 
                     span{
@@ -376,10 +376,12 @@ html, body{
                 .extract{
                     font-size: 1.2em;
                     width: 90%;
+                    line-height: 1.3em;
                     text-align: justify;
                 }
 
                 .rooms{
+                    margin: 10px auto 15px auto;
                     font-size: 1.1em;
 
                     span{
@@ -391,7 +393,7 @@ html, body{
 
                 .buttons{
                     @include flex;
-                    width: 400px;
+                    width: 450px;
 
                     .book{
                         @include input($blue, $blue);
@@ -403,7 +405,7 @@ html, body{
 
                     .details{
                         @include input($yellow, $yellow);
-                        width: 150px;
+                        width: 180px;
                     }
 
                     .details:hover{
@@ -488,6 +490,14 @@ html, body{
                font-size: 1.1em; 
             }
 
+            .book{
+                text-align: center;
+                @include button($white, $blue, $blue);
+
+                a{
+                    color:$white;
+                }
+            }
 
         }
 
@@ -966,6 +976,12 @@ html, body{
 
         }
     }
+
+.reservation{
+    padding-top: 120px;
+
+    
+}
 
  .footer{
      @include flex(column);
