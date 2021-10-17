@@ -154,7 +154,6 @@ html, body{
         @include flex;
         width: 70%;
         margin: 90px auto;
-        background-color: red;
 
         &__label{
             color: $white;
@@ -228,15 +227,17 @@ html, body{
            img{
                width: 80px;
                height: 50px;
-               margin: 20px auto 50px 0;
+               margin: 0 auto 50px 0;
            }
 
            .title{
                margin: auto 0;
+               width: 70%;
            }
 
            .text{
                width: 100%;
+               text-align: justify;
                font-size: 1.2em;
                line-height: 1.3em;
                margin: 40px auto auto 0;
@@ -261,7 +262,7 @@ html, body{
  
     &__title{
         color: $blue;
-        margin: 30px auto;
+        margin: 30px auto 50px auto;
         font-weight: 800;
         font-size: 1.9em;
     }
@@ -300,7 +301,7 @@ html, body{
             img{
                 width: 80px;
                 height: 50px;
-                margin: 20px auto 50px 0;
+                margin: 0 auto 50px 0;
             }
  
             .title{
@@ -310,6 +311,7 @@ html, body{
             .text{
                 width: 100%;
                 font-size: 1.2em;
+                text-align: justify;
                 line-height: 1.3em;
                 margin: 40px auto auto 0;
             }
@@ -329,7 +331,7 @@ html, body{
 
 .appartments{
     width: 100%;
-    padding-top: 30px;
+    padding-top: 100px;
     @include flex(column);
 
     &__title{
@@ -359,11 +361,12 @@ html, body{
                     font-size: 1.9em;
                     font-weight: 700;
                     width: 90%;
-                    margin: 10px auto 0 auto;
+                    margin: 15px auto 0 0;
                 }
 
                 .daily_price{
                     font-size: 1.1em;
+                    margin-bottom: 10px;
                     color: $black;
 
                     span{
@@ -376,10 +379,12 @@ html, body{
                 .extract{
                     font-size: 1.2em;
                     width: 90%;
+                    line-height: 1.3em;
                     text-align: justify;
                 }
 
                 .rooms{
+                    margin: 10px auto 15px auto;
                     font-size: 1.1em;
 
                     span{
@@ -391,7 +396,7 @@ html, body{
 
                 .buttons{
                     @include flex;
-                    width: 400px;
+                    width: 450px;
 
                     .book{
                         @include input($blue, $blue);
@@ -403,7 +408,7 @@ html, body{
 
                     .details{
                         @include input($yellow, $yellow);
-                        width: 150px;
+                        width: 180px;
                     }
 
                     .details:hover{
@@ -488,6 +493,14 @@ html, body{
                font-size: 1.1em; 
             }
 
+            .book{
+                text-align: center;
+                @include button($white, $blue, $blue);
+
+                a{
+                    color:$white;
+                }
+            }
 
         }
 
@@ -565,6 +578,9 @@ html, body{
 .about{
     width: 100%;
     @include flex();
+    padding-top: 100px;
+    text-align: center;
+    display: block;
 
     &__title{
         @include title();
@@ -572,22 +588,27 @@ html, body{
 
     &__content{
         @include flex;
+        flex-direction: row;
+        width: 80%;
+        margin: 20px auto;
 
-        &__image{
-            @include image;
-            width: 450px;
-        }
+            img{
+                @include image();
+                width: 350px;
+                height: 250px;
+            }
     
         &__text{
-    
+            flex: 1;
+
             .paragraph{
                 width: 80%;
                 font-size: 1.5em;
                 margin:  20px auto;
                 text-align: justify;
             }
-        
-    }   }
+        }
+   }
 }
 
 .dashboard{
@@ -967,6 +988,63 @@ html, body{
         }
     }
 
+.reservation{
+    padding-top: 120px;
+
+    
+}
+
+.gallery{
+    width: 100%;
+    height: auto;
+    padding-top: 100px;
+    display: block;
+    text-align: center;
+    
+    &__title{
+        @include title();
+    }
+
+    &__items{
+        @include flex();
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        margin-bottom: 20px;
+
+        img{
+            height: 250px;
+            margin: 15px;
+            width: 300px;
+            border-radius: 10px;
+        }
+    }
+}
+
+.contact{
+    width: 80%;
+    margin: auto auto 20px auto;
+    display: block;
+    padding-top: 100px;
+
+    label{
+        font-size: 1.1em;
+        margin: 15px auto;
+
+        input{
+
+        }
+
+        button{
+            @include button;
+        }
+    }
+
+    textarea{
+        margin: 15px auto;
+    }
+}
+
  .footer{
      @include flex(column);
      width: 100%;
@@ -1054,5 +1132,179 @@ html, body{
  }
 
  
-
+ /*responsive for 1280px*/
+ @media screen and (min-width: 1280px){
+    .top{     
+        &__research-form{
+            width: 90%;
+        }
+    }
  
+ }
+
+ /*responsive for 1024px*/
+ @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .top{
+        
+        &__research-form{
+            width: 90%;
+
+            &__label{
+                input{
+                    width: 130px;
+                }
+            }
+        }
+    }
+         
+
+    .about-section{
+        width: 100%;
+
+        &__title{
+            width: 70%;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        &__content{
+            &__picture{
+                .background{
+                    width: 250px;
+                    height: 300px;
+
+                    img{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            } 
+        
+            &__details{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto 0 auto;
+                }
+                
+                .title{
+                    width: 100%;
+                }    
+
+                .text{
+                    text-align: justify;
+                    margin: 5px auto;
+                }
+
+                .link{
+                    margin: 10px auto;
+
+                }
+            }
+        }
+    }
+
+    .reasons-section{
+        width: 100%;
+
+        &__title{
+            width: 70%;
+            font-size: 1.8em;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        &__content{
+            &__picture{
+                .background{
+                    width: 250px;
+                    height: 300px;
+
+                    img{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            } 
+        
+            &__details{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto 0 auto;
+                }
+                
+                .title{
+                    width: 100%;
+                }    
+
+                .text{
+                    text-align: justify;
+                    margin: 5px auto;
+                }
+
+                .link{
+                    margin: 10px auto;
+
+                }
+            }
+        }
+    }
+
+    .footer{
+        margin: 50px auto;  
+
+_        &__bottom{
+            &__infos{
+                .footer-logo{
+                    width: 130px;
+                    
+                    img{
+                        width: 100px;
+                        height: 25px;
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+ /*responsive for 756px*/
+ @media screen and (min-width:756px)and (max-width: 1023px) {
+    .top{
+        height: 500px;
+        padding-top: 170px;
+
+        h1{
+            width: 90%;
+            font-size: 1.8em;
+        }
+
+        &__research-form{
+            width: 95%;
+
+            &__label{
+                input{
+                    width: 100px;
+                    margin: auto 10px auto auto;
+                }
+
+                select{
+                    width: 100px;
+                }
+            }
+
+            &__submit{
+                
+            }
+        }
+    }
+
+    .about-section{
+        &__title{
+            width: 80%;
+        }
+    }
+ }
