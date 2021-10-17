@@ -8,12 +8,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include 'meta.php' ?>
+    <?php include 'meta.php';
+     ?>
 
     <title>Appartements</title>
 </head>
 <body>
     <div class="container">
+    <?php include 'header.php'; ?>
+
         <div class="appartments">
             <h1 class="appartments__title">
                 NOS APPARTEMENTS
@@ -26,7 +29,7 @@
                     foreach ($appartements as $appartement):
                 ?>
                     <div class="item">
-                            <img src="public/images/xwegbe.png">
+                    <img src="<?= $appartement->picture_1 ?>">
                         <h2 class="appartment_name">
                             <?=$appartement->appartement_name ?>
                         </h2> <br>
@@ -45,11 +48,11 @@
 
                         <div class="buttons">
                             <button class="book">
-                                <a href="booking.php?id=?">Réserver maintenant</a>
+                                <a href="booking.php?id=<?php echo $appartement->id; ?>">Réserver maintenant</a>
                             </button>
 
                             <button class="details">
-                                <a href="appartement.php?id=?">Voir les détails</a>
+                                <a href="appartement.php?id=<?php echo $appartement->id;  ?>">Voir les détails</a>
                             </button>
                         </div>
                     </div>
@@ -87,6 +90,6 @@
             </div>
         </div>
     </div>
-    
+    <?php include 'footer.php'; ?>
 </body>
 </html>
