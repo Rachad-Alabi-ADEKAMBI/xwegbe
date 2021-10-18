@@ -1,3 +1,6 @@
+<?php session_start(); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,64 @@
         <div class="top">
             <h1>Bienvenue sur <span>XWEGBE !</span></h1>
 
-            <form action="" class="top__research-form">
+            <form action="" method="POST" class="top__research-form">
+                <?php
+                 include 'control.php';
+                 if (!empty ($_POST)){
+     
+                     $errors = array ();
+                     require_once 'db.php';
+                 
+                     if (empty ($_POST['arrival_date'])) {
+                         $errors['arrival_date'] = "Date de d'arrivée non valide";
+                     } 
+
+                    if (empty ($_POST['departure_date'])) {
+                        $errors['departure_date'] = "Date de départ non valide";
+                    }
+
+                    if (empty ($_POST['number_of_people']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['number_of_people'])) {
+                        $errors['number_of_people'] = "Nombre de voyageurs non valide";
+                    } 
+                   
+                    if(empty($errors)){
+
+                    /*
+                        $_SESSION['user'] = [
+                            "number_of_people" =>$people,
+                            "arrival_date" =>$arr,
+                            "departure_date" =>$dep
+                        ];
+                        */
+
+                    //    $date =  ['user']['arrival_date'];
+
+                 /*       echo $date;
+
+                        echo ['user']['number_of_people'];
+                        echo['user']['arrival_date'];
+                        echo['user']['departure_date'];*/
+                        
+
+                        $number_of_people = $_POST['number_of_people'];
+                        $arrival_date =  $_POST['arrival_date'];
+                        $departure_date =  $_POST['departure_date'];
+
+                        header("Location: resultats-de-la-recherche.php?number_of_people=$number_of_people");
+                
+                }
+            }
+                if (!empty($errors)):?>
+
+                <div class="alert" width=400>
+                        <ul>
+                            <?php foreach ($errors as $error): ?>   
+                            <li><?= $error; ?></li>
+                            <?php endforeach;?>
+                        </ul>
+                </div>
+                <?php endif; ?>
+
                     <label class="top__research-form__label">
                         Date d'arrivée: <br>
                         <input type="date" placeholder="Arrivée*" name="arrival_date">
@@ -36,9 +96,15 @@
                         </select>
                     </label>
 
-                <button type="submit" class="top__research-form__submit">
-                    Vérifier la disponibilité <i></i>
-                </button>
+                    <label class="top__research-form__label"> <br>
+                        <button type="submit" class="top__research-form__submit">
+                            Vérifier la disponibilité <i></i>
+                        </button> 
+                        
+                        <i class="fas fa-search look-icon"></i>
+                        
+                    </label>
+                
             </form>
         </div>
 

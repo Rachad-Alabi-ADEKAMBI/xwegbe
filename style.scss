@@ -1304,7 +1304,137 @@ _        &__bottom{
 
     .about-section{
         &__title{
-            width: 80%;
+            font-size: 1.7em;
+            font-weight: 700;
+            width: 70%;
+            text-align: center;
+        }
+
+        &__content{
+            width: 90%;
+            &__picture{
+                margin: 30px auto;
+                .background{
+                    width: 260px;
+                    height: 340px;
+
+                    img{
+                        width: 290px;
+                        height: 250px;
+                    }
+                }
+            }
+
+            &__details{
+                img{
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 auto 10px auto;
+                }
+
+                .title{
+                    margin: 0 auto 0 0 ;
+                }
+
+                .text{
+                    margin: 0 auto 0  0;
+                    width: 80%;
+                    font-size: 1.1em;
+                }
+            }
+
         }
     }
+
+    .reasons-section{
+        &__title{
+            font-size: 1.7em;
+            font-weight: 700;
+            width: 70%;
+            text-align: center;
+        }
+
+        &__content{
+            width: 90%;
+
+            &__picture{
+                margin: 30px auto;
+                .background{
+                    width: 260px;
+                    height: 340px;
+
+                    img{
+                        width: 290px;
+                        height: 250px;
+                    }
+                }
+            }
+
+            &__details{
+                img{
+                    width: 50px;
+                    height: 50px;
+                    margin: 0 auto 10px auto;
+                }
+
+                .title{
+                    margin: 0 auto 0 0 ;
+                }
+
+                .text{
+                    margin: 0 auto 0  0;
+                    width: 80%;
+                    font-size: 1.1em;
+                }
+            }
+
+        }
+
+
+    }
  }
+
+
+ /*responsive for 350px*/
+ @media screen and (min-width:350px)and (max-width: 755px) {
+   .top{
+       padding-top: 150px;
+       height: 700px;
+
+       h1{
+           font-size: 1.8em;
+           width: 90%;
+
+           span{
+               font-size: 1.6em;
+           }
+       }
+
+       &__research-form{
+           margin: 40px auto;
+
+           &__label{
+               button{
+                   width: 250px;
+                   margin: auto;
+                   display: none;
+               }
+
+               .look-icon{
+                   border: 1px solid $black;
+                   width: 100px;
+                   text-align: center;
+                   padding-top: 10px;
+                   margin: auto;
+                   border-radius: 10px;
+                   height: 40px;
+                   background-color: $yellow;
+                   font-size: 1.5em;
+               }
+           }
+           
+       }
+   }
+ }
+
+ 
