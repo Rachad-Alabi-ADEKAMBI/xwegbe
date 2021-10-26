@@ -1,0 +1,20 @@
+acces au dossier du site (filezilla)
+Port FTP & et FTPS explicite:  21
+Nom d’utilisateur FTP: loginhebergeur@xwegbe.com
+Serveur FTP: ftp.adra7128.odns.fr
+
+
+acces a la messagerie contact
+url: https://xwegbe.com:2096
+login: contact@xwegbe.com
+pass: p%-vxO7b$+3W
+
+acces a la messagerie contact
+url: https://xwegbe.com:2096
+login: gill.elfried@xwegbe.com
+pass: Y;F4r##1^tR]
+
+acces au site 
+url: xwegbe.com/wp-admin
+login: contact@xwegbe.com
+pass: wv@xnV^wVX02wS&EGgRTei$b
