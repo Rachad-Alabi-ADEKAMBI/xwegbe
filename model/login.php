@@ -1,7 +1,6 @@
-<?php $title = 'Xwegbe - Connexion'; 
-
-                    if(!empty($_POST)){ 
-                        include ('model/frontend.php');
+<?php
+    require_once 'frontend.php';
+                    if(!empty($_POST)){
                         $db=dbConnect();
 
                         $errors = array ();
@@ -38,40 +37,8 @@
                                     "username" => $user['username'],
                                     "role" => $user['role']
                                 ];
-                                    header("Location: index.php?action=dashboard"); 
+                                    header("Location: ../index.php?action=dashboardPage"); 
                             }         
                         } 
                             }               
-                    ?>
-
-<?php ob_start(); ?>
-
-    <div class="register">
-        <?php include 'view/errorsView.php'; ?>
-
-        <form  action="" method="post">
-
-               <h1>
-               Connexion
-               </h1> <br>
-               
-                <label for="email" class="form__label">
-                    Email: <br>
-                    <input type="email" id="email" name="email" required>
-                </label> <br><br>
-
-                <label for="email" class="form__label">
-                    Mot de passe: <br>
-                    <input type="password" id="pass" name="pass" required>
-                </label> <br>
-
-               <button type="submit" class="form__button">
-                   Valider
-               </button> 
-            
-           </form>
-    </div>
-
-    <?php $content = ob_get_clean(); 
-   
-   require('view/template.php'); ?>
+                ?>
