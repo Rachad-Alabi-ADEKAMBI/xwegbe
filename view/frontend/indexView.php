@@ -71,13 +71,18 @@
                             </p>
 
                             <button class="link">
-                                <a href="a-propos.php">En savoir plus</a>
+                                <a href="index.php?action=aboutPage">En savoir plus</a>
                             </button>
                 </div>
             </div>
         </div>
 
         <?php include 'sliderView.php'; ?>
+        <div class="blue-separator">
+
+        </div>
+        
+        <?php include 'sliderView2.php'; ?>
 
         <div class="reasons-section">
 

@@ -50,7 +50,7 @@
 width: 800px;
 height: 350px;
 position: relative;
-margin: 0 auto;
+margin: 0 auto 50px auto;
 
 }
 

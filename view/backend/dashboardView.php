@@ -19,16 +19,6 @@
                             Content de vous revoir mr Elfried
                         </p>
                     </div>
-
-                    <div class="dashboard__heading__infos">
-                        <div class="user-logo">
-                            0
-                        </div>
-
-                        <div class="user-name">
-                            0
-                        </div>
-                    </div>
                 </div>
 
                 <div class="dashboard__main__background">

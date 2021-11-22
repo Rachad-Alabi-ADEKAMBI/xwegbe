@@ -1,49 +1,78 @@
 <footer class="footer">
-            <div class="footer__top">
+    <div class="footer__section">
 
-            </div>
+    <ul>
+     <!--   <li>
+        <img src="public/images/logo.png" alt="" 
+        class="footer__section__logo"> 
+        </li>
+-->
 
-            <div class="footer__bottom">
-               <div class="footer__bottom__infos">
-                   <div class="footer-logo">
-                       <img src="public/images/logo.png" alt="">
-                   </div>
+        <li>
+        <img src="public/images/icons/map.svg" alt="">
+            Cotonou, 45 immeuble Sainte Rita
+ 
+        </li>
 
-                   <div class="footer-adress">
-                       <img src="public/icons/map.svg" alt=""> 
-                       <p>
-                        Cotonou, adresse
-                       </p>
-                   </div>
+        <li>
+        <img src="public/images/icons/phone.svg" alt="">
+            +229 67327615
+        </li>
 
-                   <div class="footer-contact">
-                    <img src="public/icons/map.svg" alt=""> 
-                    <p>67 0000000</p>
-                </div>
-               </div>
+        <li>
+        <img src="public/images/icons/envelope.svg" alt="">
+            contact@xwegbe.com
+        </li>
+    </ul>
+    </div>
 
-                <div class="footer__bottom__menu">
-                    <h3>
-                        Liens rapides
-                    </h3>
+    <div class="footer__section">
+        <ul>
+            <li>
+                <a href="index.php">Accueil</a>
+            </li>
 
-                    <ul>
-                        <li>
-                            <a href="index.php?action=aboutPage">Qui sommes nous ?</a>
-                        </li>
+            <li>
+                <a href="index.php?action=appartements">
+                    Appartements
+                </a>
+            </li>
 
-                        <li>
-                            <a href="index.php?action=listAppartements">Appartements</a>
-                        </li>
+            <li>
+                <a href="index.php?action=aboutPage">
+                    Qui sommes nous ?
+                </a>
+            </li>
 
-                        <li>
-                            <a href="index.php?action=contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <hr>
+            <li>
+                <a href="index.php?action=galleryPage">
+                    Galerie photos
+                </a>
+            </li>
 
-            <p class="footer__copyright">Xwegbe @ 2020 Tous droits réservés</p>
-        </footer>
+        </ul>
+    </div>
+
+    <div class="footer__section">
+        <ul>
+        <li>
+                <a href="index.php?action=faqPage">
+                    FAQ
+                </a>
+            </li>
+
+            <li>
+                <a href="index.php?action=contactPage">
+                   Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="index.php?action=aboutPage">
+                    Conditions générales
+                </a>
+            </li>
+
+        </ul>
+    </div>
+ </footer>
