@@ -67,10 +67,14 @@
 
                <button type="submit" class="form__button">
                    Valider
-               </button> 
+               </button> <br>
+
+               <label for="">  <input type="checkbox" class="checkbox"> Mot de passe oublié ?
+                  
+               </label> <br>
             
            </form>
-    </div>
+    </div> 
 
     <?php $content = ob_get_clean(); 
    
