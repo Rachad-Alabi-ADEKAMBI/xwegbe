@@ -9,43 +9,87 @@
                        <img src="public/images/logo.png" alt="">
                    </div>
 
-                   <div class="footer-adress">
-                       <img src="public/icons/map.svg" alt=""> 
-                       <p>
-                        Cotonou, adresse
-                       </p>
-                   </div>
+                   <ul>
+                       <li>
+                            <img src="public/icons/map.svg" alt=""> Cot Adresse
+                       </li>
 
-                   <div class="footer-contact">
-                    <img src="public/icons/map.svg" alt=""> 
-                    <p>67 0000000</p>
-                </div>
+                       <li>
+                       <img src="public/icons/phone.svg" alt=""> +229 45
+                       </li>
+
+                       <li>
+                       <i class="fas fa-envelope-square"></i> contact@xwegbe.com
+                       </li>
+                   </ul>
                </div>
-
+                
                 <div class="footer__bottom__menu">
                     <h3>
-                        Liens rapides
+                        Plan du site
                     </h3>
 
                     <ul>
                         <li>
-                            <a href="index.php">Qui sommes nous ?</a>
+                            <a href="a-propos.php">Qui sommes nous ?</a>
                         </li>
 
                         <li>
-                            <a href="index.php">Appartements</a>
+                            <a href="contact.php">Contact</a>
                         </li>
 
-                        
+                        <li>
+                            <a href="gelerie.php">Galerie</a>
+                        </li>
 
                         <li>
-                            <a href="index.php">Contact</a>
+                            <a href="mentions-legales.php">Mentions légales</a>
                         </li>
                     </ul>
                 </div>
+
+                <div class="footer__bottom__menu">
+                    <h3>
+                        Mentions légales
+                    </h3>
+
+                    <ul>
+                        <li>
+                            <a href="mensions-legales.php">Qui sommes nous ?</a>
+                        </li>
+
+                        <li>
+                            <a href="cgv.php">CGV</a>
+                        </li>
+
+                        <li>
+                            <a href="politique-de-confidentialite.php">politique de confidentialité</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer__bottom__menu">
+                    <h3>
+                        Newsletters
+                    </h3>
+
+                    
+                           <form action="">
+                               <label for="">
+                                    Inscrivez vous à la newsletters de Xwegbe <br>
+                                    <input type="text" name=""> <br>
+                                    <button>
+                                    <i class="fas fa-location-arrow"></i>
+                                    </button>
+                               </label>
+                           </form>
+                </div> <br>
+                <hr>
+
+                <p class="footer__copyright">Xwegbe @ 2020 Tous droits réservés</p>
+     
             </div>
             
-            <hr>
+           
 
-            <p class="footer__copyright">Xwegbe @ 2020 Tous droits réservés</p>
-        </footer>
+               </footer>

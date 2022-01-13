@@ -2,7 +2,7 @@
 
 //traitement de la recherche
 include 'db.php';
-include 'functions.php';
+
 if (!empty ($_POST)){
 
     $errors = array ();
@@ -30,7 +30,6 @@ if (!empty ($_POST)){
            "arrival_date" =>$arrival_date,
            "departure_date" =>$departure_date
        ];
-
       
        header("Location: resultats-de-la-recherche.php");
 
@@ -114,39 +113,47 @@ if (!empty ($_POST)){
 
                     <form action="" method="POST"  id="bookings" class="top__research-form" 
                             id="reservations">
-                
-                            <label class="top__research-form__label">
-                                Date d'arrivée: <br>
-                                <input type="date" placeholder="Arrivée*" name="arrival_date">
-                            </label>
 
-                            <label class="top__research-form__label">
-                            <img src="public/icons/people.svg" alt="">
-                        <br>
-                                <input type="date" placeholder="Départ*" name="departure_date">
-                            
-                            </label>
+                                <div class="details">
+                                    <label class="label">
+                                        <input type="date" placeholder="Arrivée*" name="arrival_date">
+                                    </label>
 
-                            <label class="top__research-form__label">
-                                Nombre de personnes: <br>
-                                <select  name="rooms" id="">
-                                        <option value="">Sélectionner</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                </select>
-                            </label>
+                                    <label class="label">
+                                        <input type="date" placeholder="Départ*" name="departure_date">
+                                    
+                                    </label>
 
-                            <label class="top__research-form__label"> <br>
-                                <button type="submit" class="top__research-form__submit">
-                                    Vérifier la disponibilité <i></i>
+                                    <label class="label">
+                                        <select  name="rooms" id="">
+                                                <option value="">Adultes</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                        </select>
+                                    </label>
+
+                                    <label class="label">
+                                        <select  name="rooms" id="">
+                                                <option value="">Enfants</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                        </select>
+                                    </label> 
+                                </div>
+                        
+                            <br>
+
+                               <div class="details-submit">
+                               <button type="submit" class="submit-btn">
+                                    Vérifier la disponibilité  <i class="fas fa-search look-icon"></i>
                                 </button> 
-                                
-                                <i class="fas fa-search look-icon"></i>
-                                
-                            </label>
+                               </div>
                     </form>
 
                     <?php  if (!empty($errors)):?>
@@ -272,6 +279,7 @@ if (!empty ($_POST)){
                 <p class="text">
                     Dans nos appartements, vous vous sentirez comme chez vous, entre autres équipements
                     vous disposez de: 
+                    </p>
                     <ul>
                         <li>
                         <i class="fas fa-check"></i> La machine à laver
@@ -289,7 +297,7 @@ if (!empty ($_POST)){
                         <i class="fas fa-check"></i> Wifi, eau et electricité inclus
                         </li>
                     </ul>
-                </p>
+                
 
                 <button class="link">
                     <a href="#bookings">Faire une réservation</a>
