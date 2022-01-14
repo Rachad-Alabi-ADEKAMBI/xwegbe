@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@200&display=swap');
+
 $blue:  #071339;
 $yellow:  #D1B35B;
 $black:  #242424;
 $white: white;
+$grey: #EEEEEE;
 
 @mixin flex ($flex-direction:row) {
     display: flex;
@@ -16,7 +18,6 @@ $white: white;
     width: 350px;
     margin: 30px auto;
     padding-top: 0px;
-    border-radius: 10px;
     background-color: $yellow;
     display: block;
     padding-top: 30px;
@@ -58,12 +59,11 @@ border-color: $border-color;
 @mixin button($color: $white, $background-color: $yellow, $border-color: $yellow){
 width: auto;
 border-radius: 5px;
-font-size: 1.5em;
+font-size: 1.3em;
     height: 40px;
-    font-size: 1.3em;
     cursor: pointer;
 color: $color;
-padding: 5px;
+padding: 10px;
 background-color: $background-color;
 border-color: $border-color;
 }
@@ -82,7 +82,6 @@ border-color: $border-color;
 @mixin image{
     cursor: pointer;
     margin: 20px auto;
-    border-radius: 10px;
     transition: 500ms ease-in-out;
 }
 
@@ -209,12 +208,14 @@ h3{
 
 hr{
     color: $blue;
-    margin: auto auto 10px auto;
     width: 80%;
     background-color: $blue;
     height: 1px;
 }
 
+button{
+    font-weight: 400;
+}
 
 button:hover{
     filter: brightness(1.1);
@@ -276,7 +277,9 @@ html, body{
         width: 80%;
         margin: 90px auto;
 
-        &__label{
+     .details{
+         width: 90%;
+        .label{
             color: $white;
             margin: auto 20px;
             position: relative;
@@ -299,24 +302,37 @@ html, body{
                 @include select;
                 width: 180px;
             }
-
-            button{
-                color: $blue;
-            }
-
-            i{
-                color: $white;
-               display: none;
-            }
         }
 
-        &__submit{
-            margin: auto 20px;
-            height: 45px;
-            @include button($white, $yellow, $yellow);
-           
+        button{
+            color: $white;
+            height: 40px;
+        }
+
+        i{
+            color: $white;
         }
     }
+        .details-submit{
+            width: 90%;
+            margin: 20px auto;
+            text-align: right;
+
+            button{
+                height: 45px;
+                @include button($white, $yellow, $yellow);
+                float: right;
+                 margin: auto 10px auto auto;
+    
+                i{
+                    color: $white;
+                    font-size: 1em;
+                }
+               
+            }
+    
+        }   
+ }
 
 }
 
@@ -441,6 +457,7 @@ html, body{
 }
 
 .categories__list__post__item{
+    display: none;
     padding-top: 80px;
     @include content();
     text-align: justify;
@@ -521,6 +538,7 @@ html, body{
         &__details{
             display: block;
             flex: 1;
+            text-align: left;
             
  
             img{
@@ -538,9 +556,24 @@ html, body{
                 width: 100%;
                 font-size: 1.2em;
                 font-weight: 400;
-                text-align: justify;
                 line-height: 1.3em;
                 margin: 10px auto auto 0;
+                text-align: left;
+                
+               
+            }
+            ul{
+                text-align: left;
+                li{
+                    text-align: left;
+                    margin: auto 0;
+                    list-style: none;
+                    i{
+                        font-size: 1.2em;
+                        color: $yellow;
+                    }
+                  
+                }
             }
  
             .link{
@@ -602,7 +635,6 @@ html, body{
                 img{
                     width: 750px;
                     height: 400px;
-                    border-radius: 10px;
                 }
 
                 .appartement__name{
@@ -673,14 +705,16 @@ html, body{
 
         &__form{
             @include form;
-            width: 400px;
-            height: 500px;
+            width: 30%;
+            margin: -90px auto;
+            height: 600px;
+
 
            .form{
-                height: 500px;
-            &__title{
-                color: $blue;
-            }
+               height: 450px;
+               margin: auto 15px;
+               float: left;
+
             &__label{
                 @include label;
     
@@ -702,7 +736,19 @@ html, body{
                     color: $white;
                     width: 200px;
                     height: 50px;
-                    margin: 20px auto 20px auto;
+                    margin: 40px auto;
+
+                    a{
+                        color: white;
+                    }
+                }
+    
+                &__submit:hover{
+                    @include input($white, $white);
+                    width: 200px;
+                    height: 50px;
+                    color: $blue;
+                    margin: 40px auto;
                 }
            }
         }
@@ -807,11 +853,14 @@ html, body{
         &__form{
             @include form;
             width: 30%;
-            margin: 20px auto;
-            height: 400px;
+            margin: -5px auto;
+            height: 600px;
+
 
            .form{
                height: 400px;
+               margin: auto 15px;
+               float: left;
 
             &__label{
                 @include label;
@@ -908,15 +957,17 @@ html, body{
         width: 80%;
         margin: 20px auto;
 
-        img{
-            margin: 0 auto;
-        }
-
             &__image{
                 @include image();
                 width: 350px;
                 height: 250px;
                 margin: 40px auto;
+                display: table;
+
+                img{
+                    display: table-cell;
+                    vertical-align: middle;
+                }
             }
     
         &__text{
@@ -930,7 +981,45 @@ html, body{
             }
         }
    }
-}
+
+   &__reasons{
+       &__title{
+           @include title();
+       }
+
+          &__items{
+            @include flex;
+            @include content;
+            margin: 10px auto;
+            .item{
+                width: 280px;
+                transition: 500ms ease-in-out;
+                border: 1px solid $grey;
+                height: 280px;
+                margin: 15px;
+                display: block;
+                background-color: $grey;
+                text-align: center;
+                cursor: pointer;
+                transition: 500ms ease-in-out;
+    
+                i{
+                    color: $blue;
+                    font-size: 1.5em;
+                    margin: 30px auto;
+                }
+
+                h3{
+                    font-size: 1.3em;
+                }
+               }
+            .item:hover{
+                transform: scale(1.1);
+            }
+          }
+       }
+   }
+
 
 .dashboard{
     width:  95%;
@@ -1501,62 +1590,76 @@ html, body{
 }
 
 .contact{
-    background-color: $blue;
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    text-align: center;
-    padding-bottom: 20px;
+    display: block;
+    padding-top: 100px;
 
+    &__top{
+        &__boxes{
+            @include content();
+            @include flex(row);            
+            .box{
+                width: 250px;
+                border: 1px solid $grey;
+                height: 250px;
+                margin: 15px;
+                display: block;
+                background-color: $grey;
+                text-align: center;
+                cursor: pointer;
+                transition: 500ms ease-in-out;
 
-    .form{
-        @include form;
-        width: 600px;
-        height: auto;
-        margin: 30px auto;
-        display: block;
-        padding-top: 30px;
+                i{
+                    color:$blue;
+                    font-size: 2em;
+                    margin: 30px auto;
+                    text-align: center;
+                }
 
-        a{
-            color: $blue;
-            float: right;
-            margin: auto 30px auto auto;
-        }
+                h2{
+                    @include title;
+                    font-weight: bold;
+                    font-size: 1.2em;    
+                }
+            }   
 
-        &__title{
-            @include title;
-            color:$blue;
-        }
-    
-        label{
-            font-size: 1.1em;
-            margin: 15px auto;
-            @include label;
-            width: 80%;
-            text-align: left;
-            color: $blue;
-    
-            input{
-                @include input();
-                width: 80%;
-                background-color: $white;
-                border-color: $white;
-            }     
-            
-            textarea{
-                width: 80%;
+            .box:hover{
+                transform: scale(1.1);
             }
         }
+    }
 
-        button{
-            @include button;
-            margin: 20px auto;
-            background-color: $blue;
-        }
-    
-        textarea{
-            margin: 15px auto;
-        }
+    &__bottom{
+        @include content;
+
+            .form{
+                @include content;
+                label{
+                    margin: 10px auto;
+                    font-size: 1em;
+                    font-weight: bold;
+                    
+                    input{
+                        background-color: $grey;
+                        height: 40px;
+                        border: 1px solid $grey;
+                        width: 80%;
+                    }
+
+                    textarea{
+                        width: 80%;
+                        background-color: $grey;
+                        height: 150px;
+                    }
+                }
+
+                button{
+                    @include button($white, $blue, $blue);
+                    width: auto;
+                    font-size: 0.9em;
+                    padding: 5px;
+                    margin: 10px auto;
+                }
+            }
     }
 }
 
@@ -1624,11 +1727,18 @@ html, body{
          background-color: $blue;
      }
 
+
+     hr{
+         margin: 100px auto 50px auto;
+
+     }
+
      &__bottom{
-         height: 200px;
+         height: auto;
          @include flex;
-         padding-top: 20px;
          @include content();
+         text-align: left;
+         width: 90%;
 
          &__infos{
              .footer-logo{
@@ -1637,11 +1747,12 @@ html, body{
                  width: 150px;
                  padding-left: 20px;
                  background-color: $blue;
+                 margin-top: 30px;
 
                  img{
                     width: 120px;
                     height: 35px;
-                    margin: auto;
+                    
                  }
              }
 
@@ -1650,6 +1761,7 @@ html, body{
                  li{
                      display: table;
                      color: $blue;
+                     margin: auto 0;
 
                      img{
                          width: 30px;
@@ -1657,63 +1769,91 @@ html, body{
                          vertical-align: middle;
                      }
 
-                     i{
-                        width: 30px;
-                     }
+                     
                  }
              }
          }
          
 
          &__menu{
+             text-align: left;
              h3{
                  color: $blue;
              }
 
              .footer-logo img{
                 width: 120px;
-                display: none;
             }
 
-             ul li {
-                list-style: none;
+             ul{
+                 text-align: left;
+                 margin: auto 0;
 
-                img{
-                    width: 80px;
-                }
-                a{
-                    color: $blue
-                }
+                 li {
+                    text-align: left;
+                    margin: auto -30px;
+                    color: $blue;
+    
+                    img{
+                        width: 80px;
+                        float: left;
 
-               
+                    }
+                    a{
+                        color: $blue
+                    }
+    
+                    img{
+                        width: 80px;
+                        height: 80px;
+                        display: none;
+                    }
+    
+                  
+                 }
+             }
 
-                img{
-                    width: 80px;
-                    height: 80px;
-                    display: none;
-                }
-
-                form{
-                    label{
-                        color: $blue;
+             form{
+                label{
+                    color: $blue;
+                    @include flex();
+                    width: 170px;
+                    
+                    input{
+                        width: 100px;
+                        margin: 0;
                     }
 
                     button{
                         @include button;
                         background-color: $blue;
                         color: color;
-                        margin: 10px auto;
+                        width: 50px;
+                        margin: auto 0;
+
+                        i{
+                            color: white;
+                            font-size: 1.1em;
+                            margin: auto;
+                        }
                     }
+
                 }
-             }
+
+               
+            }
          }
      }
 
      &__copyright{
+        text-align: center;
+        color: $blue;
+        width: 80%;
         margin: auto;
-     }
+    }
 
-     
+
+
  }
 
  /*responsive for 1024px*/
