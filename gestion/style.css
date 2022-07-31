@@ -1,0 +1,10 @@
+.disclaimer{
+  width: 70%;
+  margin: auto 0;
+}
+
+label{
+  display: flex;
+  flex-direction: row;
+  
+}
