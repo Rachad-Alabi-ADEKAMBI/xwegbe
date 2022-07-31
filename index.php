@@ -1,321 +1,302 @@
-<?php session_start(); 
-
-//traitement de la recherche
-include 'db.php';
-
-if (!empty ($_POST)){
-
-    $errors = array ();
-
-    if (empty ($_POST['arrival_date'])) {
-        $errors['arrival_date'] = "Date de d'arrivée non valide";
-    } 
-
-   if (empty ($_POST['departure_date'])) {
-       $errors['departure_date'] = "Date de départ non valide";
-   }
-
-   if (empty ($_POST['rooms']) || !preg_match('/^[a-zA-Z0-9]+$/', $_POST['rooms'])) {
-       $errors['rooms'] = "Nombre de voyageurs non valide";
-   } 
-  
-   if(empty($errors)){
-        $rooms = $_POST['rooms'];
-        $arrival_date =  $_POST['arrival_date'];
-        $departure_date =  $_POST['departure_date'];
-
-    
-       $_SESSION['book'] = [
-           "rooms" =>$rooms,
-           "arrival_date" =>$arrival_date,
-           "departure_date" =>$departure_date
-       ];
-      
-       header("Location: resultats-de-la-recherche.php");
-
-    }
-}
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <?php include 'meta.php'; ?>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
 
-    <title>Xwegbe - Accueil</title>
+    <title>Xwegbe - Appartements meublés au Bénin</title>
 </head>
+
 <body>
-  
-        <?php include 'header.php'; ?>
+    <?php include 'header2.php'; ?>
 
-        <div class="categories__list__post__item">
-            <div class="row">
-                    <div class="post">
-                        <div class="categories__post__item__pic">
-                            <div class="post__meta">
-                                <h4>
-                                    08
-                                </h4>
+    <div class="top">
+        <h1>Bienvenue sur <span>XWEGBE !</span></h1>
 
-                                <span>
-                                    Aout
-                                </span>
-                            </div>
-                        </div>
+        <form action="" class="top__research-form">
+            <label class="top__research-form__label">
+                Date d'arrivée: <br>
+                <input type="date" placeholder="Arrivée*" name="arrival_date">
+            </label>
+
+            <label class="top__research-form__label">
+                Date de départ: <br>
+                <input type="date" placeholder="Départ*" name="departure_date">
+            </label>
+
+            <label class="top__research-form__label">
+                Nombre de personnes: <br>
+                <select name="number_of_people" id="">
+                    <option value="">Sélectionner</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+
+            <label for=""> <br>
+                <button type="submit" class="top__research-form__submit">
+                    Chercher <i></i>
+                </button>
+            </label>
+        </form>
+    </div>
+
+    <div class="about-section">
+        <h2 class="about-section__title">
+            Xwegbe, 1er catalogue d'appartements meublés au Bénin
+        </h2>
+
+        <div class="about-section__content">
+            <div class="about-section__content__picture">
+                <div class="background">
+                    <img src="public/images/xwegbe.jpeg" alt="">
+                </div>
+            </div>
+
+            <div class="about-section__content__details">
+                <img src="public/icons/people.svg" alt="">
+
+                <h3 class="title">
+                    Qui sommes nous ?
+                </h3>
+
+                <p class="text">
+                    Xwegbe est une entreprise de location d'appartements meublés au Bénin.
+                    Depuis 2017 nous mettons à votre disposition pour de courtes ou longues durées
+                    des appartements.
+
+                </p>
+
+                <button class="link">
+                    <a href="#contact">Contact</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <h2>
+            Nos appartements
+        </h2>
+
+        <div class="gallery__content">
+            <div class="slide">
+                <div class="slide__img">
+                    <div class="like">
+                        ()
                     </div>
 
-                    <div class="post">
-                        <ul>
-                            <li>
-                                OKLm
-                            </li>
-
-                            <li>
-                                Random text
-                            </li>
-                        </ul>
-
-                        <h3>
-                            Titre du post
-                        </h3>
-
-                        <ul class="post__Widget">
-                            <li>
-                                By Admin
-                            </li>
-
-                            <li>
-                                3 min read
-                            </li>
-
-                            <li>
-                                20 comments
-                            </li>
-                        </ul>
-
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                             adipisicing elit. Cum dolorem rerum 
-                             soluta voluptatibus quasi minus dolore 
-                             necessitatibus ipsa voluptatum mollitia 
-                             dolores perferendis incidunt, magnam quod
-                              eveniet repellendus, facere quis illo?
-                        </p>
+                    <div class="price">
+                        à partir de: <br>
+                        <span>40. 000 FCFA</span> / nuit
                     </div>
+
+                    <img src="public/images/img12.jpg" alt="">
+                </div>
+
+                <h3>
+                    Appartement 1
+                </h3>
+
+                <p class="details">
+                    Détails:
+                </p>
+
+                <p>
+                    <span>Chambres:</span>2
+                </p>
+
+                <p>
+                    <span>Equipements: </span>climatisaion, parking, wifi
+                </p>
+            </div>
+
+            <div class="slide">
+                <div class="slide__img">
+                    <div class="like">
+                        ()
+                    </div>
+
+                    <div class="price">
+                        à partir de: <br>
+                        <span>40. 000 FCFA</span> / nuit
+                    </div>
+
+                    <img src="public/images/img12.jpg" alt="">
+                </div>
+
+                <h3>
+                    Appartement 1
+                </h3>
+
+                <p class="details">
+                    Détails:
+                </p>
+
+                <p>
+                    <span>Chambres:</span>2
+                </p>
+
+                <p>
+                    <span>Equipements: </span>climatisaion, parking, wifi
+                </p>
+            </div>
+
+            <div class="slide">
+                <div class="slide__img">
+                    <div class="like">
+                        ()
+                    </div>
+
+                    <div class="price">
+                        à partir de: <br>
+                        <span>40. 000 FCFA</span> / nuit
+                    </div>
+
+                    <img src="public/images/img12.jpg" alt="">
+                </div>
+
+                <h3>
+                    Appartement 1
+                </h3>
+
+                <p class="details">
+                    Détails:
+                </p>
+
+                <p>
+                    <span>Chambres:</span>2
+                </p>
+
+                <p>
+                    <span>Equipements: </span>climatisaion, parking, wifi
+                </p>
+            </div>
+
+            <div class="slide">
+                <div class="slide__img">
+                    <div class="like">
+                        ()
+                    </div>
+
+                    <div class="price">
+                        à partir de: <br>
+                        <span>40. 000 FCFA</span> / nuit
+                    </div>
+
+                    <img src="public/images/img12.jpg" alt="">
+                </div>
+
+                <h3>
+                    Appartement 1
+                </h3>
+
+                <p class="details">
+                    Détails:
+                </p>
+
+                <p>
+                    <span>Chambres:</span>2
+                </p>
+
+                <p>
+                    <span>Equipements: </span>climatisaion, parking, wifi
+                </p>
             </div>
         </div>
 
-        <div class="container" id="bookings" >
-
-                <div class="top">
-                    <h1 class="site_title" >Bienvenue sur <span>XWEGBE !</span></h1>
-
-                    <form action="" method="POST"  id="bookings" class="top__research-form" 
-                            id="reservations">
-
-                                <div class="details">
-                                    <label class="label">
-                                        <input type="date" placeholder="Arrivée*" name="arrival_date">
-                                    </label>
-
-                                    <label class="label">
-                                        <input type="date" placeholder="Départ*" name="departure_date">
-                                    
-                                    </label>
-
-                                    <label class="label">
-                                        <select  name="rooms" id="">
-                                                <option value="">Adultes</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                        </select>
-                                    </label>
-
-                                    <label class="label">
-                                        <select  name="rooms" id="">
-                                                <option value="">Enfants</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                        </select>
-                                    </label> 
-                                </div>
-                        
-                            <br>
-
-                               <div class="details-submit">
-                               <button type="submit" class="submit-btn">
-                                    Vérifier la disponibilité  <i class="fas fa-search look-icon"></i>
-                                </button> 
-                               </div>
-                    </form>
-
-                    <?php  if (!empty($errors)):?>
-
-                    <div class="alert" width=400>
-                            <ul>
-                                <?php foreach ($errors as $error): ?>   
-                                <li><?= $error; ?></li>
-                                <?php endforeach;?>
-                            </ul>
-                    </div>
-                <?php endif; ?>
-
-            </div>
-
-            <div class="about-section">
-                <h2 class="about-section__title">
-                    Xwegbe, 1er catalogue d'appartements meublés au Bénin
-                </h2>
-
-                <div class="about-section__content">
-                    <div class="about-section__content__picture">
-                        <div class="background">
-                            <img src="public/images/xwegbe.jpeg" alt="">
+        <div class="gallery__blue">
+            <div class="gallery__blue__btns">
+                <div class="btn">
+                    << </div>
+                        <div class="btn">
+                            >>
                         </div>
-                    </div>
-        
-                    <div class="about-section__content__details">
-                                <img src="public/icons/people.svg" alt="">
-        
-                                <h3 class="title">
-                                    Qui sommes nous ?
-                                </h3>
-        
-                                <p class="text">
-                                Nous sommes une entreprise de locations 
-                                d’appartements meubles a cotonou et environs. 
-                                Nous avons des appartments disponibles pour 
-                                tout type de sejours et pour tous les budgets. 
-                                Merci de nous faire confiance depuis bientot 3 ans. 
-                                </p>
 
-                                <button class="link">
-                                    <a href="a-propos.php">En savoir plus</a>
-                                </button>
-                    </div>
                 </div>
             </div>
         </div>
-        
-        <?php include 'slider.php'; ?>
-  
-    <?php include 'slider2.php'; ?>
+    </div>
 
-        <div class="categories__list__post__item">
-            <div class="row">
-                    <div class="post">
-                        <div class="categories__post__item__pic">
-                            <div class="post__meta">
-                                <img src="" alt="">
-                                <h4>
-                                    08
-                                </h4>
+    <div class="testimonies">
+        <div class="testimonies__slides">
+            <div class="testimonies__slides__testimony">
+                <img src="public/images/img2.jpg" alt="appartement meublés au Bénin">
+                <div class="text">
+                    <span>"</span> <br>
 
-                                <span>
-                                    Aout
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    <p>
+                        Ma famille et moi avons passé un excellent week-end. l'appartement était mieux que ce que nous
+                        espérions, je recommande vivement.
+                    </p>
 
-                    <div class="post">
-                        <ul>
-                            <li>
-                                OKLm
-                            </li>
 
-                            <li>
-                                Random text
-                            </li>
-                        </ul>
+                    <p class="client">
+                        Iris
+                    </p>
+                    <p class="happy">
+                        Cliente satisfaite
+                    </p>
 
-                        <h3>
-                            Titre du post
-                        </h3>
 
-                        <ul class="post__Widget">
-                            <li>
-                                By Admin
-                            </li>
-
-                            <li>
-                                3 min read
-                            </li>
-
-                            <li>
-                                20 comments
-                            </li>
-                        </ul>
-
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur
-                             adipisicing elit. Cum dolorem rerum 
-                             soluta voluptatibus quasi minus dolore 
-                             necessitatibus ipsa voluptatum mollitia 
-                             dolores perferendis incidunt, magnam quod
-                              eveniet repellendus, facere quis illo?
-                        </p>
-                    </div>
+                </div>
             </div>
         </div>
-        
+
+        <div class="testimonies__btns">
+            <div class="btn">
+                << </div>
+                    <div class="btn">
+                        >>
+                    </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="reasons-section">
+        <h2 class="reasons-section__title">
+            Xwegbe, 1er catalogue d'appartements meublés au Bénin
+        </h2>
+
         <div class="reasons-section__content">
             <div class="reasons-section__content__details">
                 <img src="public/icons/hand.svg" alt="">
 
                 <h3 class="title">
-                    Pourquoi nous choisir
+                    Pourquoi nous choisir ?
                 </h3>
 
                 <p class="text">
-                    Dans nos appartements, vous vous sentirez comme chez vous, entre autres équipements
-                    vous disposez de: 
-                    </p>
-                    <ul>
-                        <li>
-                        <i class="fas fa-check"></i> La machine à laver
-                        </li>
-
-                        <li>
-                        <i class="fas fa-check"></i> La Climatisation
-                        </li>
-
-                        <li>
-                        <i class="fas fa-check"></i> Le parking gratuit
-                        </li>
-                        
-                        <li>
-                        <i class="fas fa-check"></i> Wifi, eau et electricité inclus
-                        </li>
-                    </ul>
-                
+                    "Xwégbé" siginifie en langue fon "La maison", vous vous sentirez comme chez vous
+                    dans nos appartements. La sécurité et le confort sont deux maitre-mots chez nous.
+                </p>
 
                 <button class="link">
-                    <a href="#bookings">Faire une réservation</a>
+                    <a href="#book">Réserver</a>
                 </button>
             </div>
 
             <div class="reasons-section__content__picture">
                 <div class="background">
-                    <img src="public/images/xwegbe2.jpg" alt="appartements meublés à cotonou">
+                    <img src="public/images/xwegbe.jpeg" alt="">
                 </div>
             </div>
 
-        
+
         </div>
     </div>
 
     <?php include 'footer.php'; ?>
-    
-    <script src="public/js/script.js" ></script>
+
+    <script src="public/js/script.js"></script>
 </body>
+
 </html>

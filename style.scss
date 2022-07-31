@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@200&display=swap');
+/*
+Theme Name: Xwegbe
+Theme URI: https://www.codeurcreatif.com
+Author: Codeur creatif
+Author URI: https://www.codeurcreatif.com
+Description: Thème personalisé pour reservations de logements
+Version: 1.0
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 $blue:  #071339;
 $yellow:  #D1B35B;
 $black:  #242424;
 $white: white;
-$grey: #EEEEEE;
 
 @mixin flex ($flex-direction:row) {
     display: flex;
@@ -17,7 +25,9 @@ $grey: #EEEEEE;
 @mixin form{
     width: 350px;
     margin: 30px auto;
+    height: 400px;
     padding-top: 0px;
+    border-radius: 10px;
     background-color: $yellow;
     display: block;
     padding-top: 30px;
@@ -31,15 +41,14 @@ $grey: #EEEEEE;
 
 @mixin title{
     font-size: 2em;
-    font-weight: 400;
     margin: auto;
     color: $blue;
 }
 
 @mixin label{
-    color: rgb(53, 32, 32);
+    color: $white;
     text-align: left;
-    font-weight: bold;
+    font-size: bold;
     margin: 10px auto 20px auto;
     font-size: 1.2em;
 }
@@ -52,6 +61,7 @@ font-size: 1.5em;
     font-size: 1.3em;
     cursor: pointer;
 color: $blue;
+margin: 0 auto;
 background-color: $background-color;
 border-color: $border-color;
 }
@@ -59,11 +69,12 @@ border-color: $border-color;
 @mixin button($color: $white, $background-color: $yellow, $border-color: $yellow){
 width: auto;
 border-radius: 5px;
-font-size: 1.3em;
+font-size: 1.5em;
     height: 40px;
+    font-size: 1.3em;
     cursor: pointer;
 color: $color;
-padding: 10px;
+margin: 0 auto;
 background-color: $background-color;
 border-color: $border-color;
 }
@@ -82,168 +93,116 @@ border-color: $border-color;
 @mixin image{
     cursor: pointer;
     margin: 20px auto;
+    border-radius: 10px;
     transition: 500ms ease-in-out;
 }
 
-.nothing-to-display{
-    text-align: center;
-    margin: 15px auto;
-    font-size: 1.3em;
-    font-weight: bold;
-    color: $blue;
+@mixin box{
+    box-shadow: 0px 5px 28px #00000029;
+    background-color: white;
+    border-radius: 15px;
 }
 
-label span{
-    font-weight: bold;
-    font-size: 1.3em;
-}
-
-form {
-    
-        p{
-            font-size: 1.2em;
-            margin: 15px auto;
-            text-align: left;
-            margin: auto 10px;
-
-            span{
-                font-weight: bold;
-                color: $blue;
-            }
-        }
-    }
-
-table{
-    margin: 15px auto auto 0;
-    text-align: left;
+html, body{
     font-size: 1.1em;
-    tr{
-        th{
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        td{
-            margin: 15px;
-
-            a{
-                color: $blue;
-                font-weight: bold;
-            }
-
-            button{
-                @include button;margin-right: 10px;
-            }
-
-            .edit{
-                background-color: green;
-            }
-
-            .delete{
-                background-color: red;
-            }
-
-            span{
-                font-weight: bold;
-                font-size: 1.1em;
-            }
-        }
-    }
+    line-height: 1.3em;
 }
 
-.pages{
-    margin-bottom: 20px;
-
-    .pagination{
-        text-align: center;
-        li{
-            display: inline;
-
-            a{
-                color: $blue;
-                font-size: 1.1em;
-                font-weight: bold;
-            }
-
-            a:hover{
-                color: $yellow;
-            }
-        }
-
-        .disabled{
-            display: none;
-        }
-    }
+button{
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+    transition: 500ms ease-in-out;
+    height: 40px;
+    width: auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
 }
 
-.parameters{
-    width: 400px;
-    &__form{
-        @include form;
-      
-    }
-
-    button{
-        @include button();
-        background-color: $blue;
-    }
+button:hover{
+    transform: scale(1.1);
 }
 
-.site_title{
-    font-family: 'Pacifico', 'sans-serif';
-    color: $blue;
-    text-align: center;
-    margin: auto;
-}
 
 h1{
-    color: $yellow;
+    font-family: 'Pacifico', 'sans-serif';
+    color: $blue;
+}
+
+h2{
+    font-size: 2.7em;
     font-weight: bold;
+    width: 60%;
+    text-align: center;
+    margin: -90px auto;
 }
 
 h3{
     color: $blue;
-    font-size: 1.7em;
+    font-size: 1.9em;
+    font-weight: bold;
 }
 
 hr{
     color: $blue;
+    margin: auto auto 10px auto;
     width: 80%;
     background-color: $blue;
     height: 1px;
 }
-
-button{
-    font-weight: 400;
-}
-
-button:hover{
-    filter: brightness(1.1);
-
-    a{
-        color: $white;
-    }
-  }
 
 a{
     color: $white;
     text-decoration: none;
 }
 
-a:hover{
-    color: $white;
+.view{
+    background-color: $blue;
 }
 
-html, body{
-    font-family: 'Poppins', 'sans-serif';
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.edit{
+    background-color: $yellow;
 }
+
+.trash{
+    background-color: red;
+}
+
+.new{
+    background: green;
+}
+
+.choice{
+    margin-left:  5px;
+}
+
+.back{
+    margin: auto;
+    width: 80px;
+    cursor: pointer;
+    color: $blue;
+    	
+    p{
+        font-size: 1.7em;
+        color: $blue;
+        font-weight: bold;
+    }
+
+}
+
+.back:hover{
+    p{
+       transform: scale(1.1);
+       color: $yellow;
+        }
+}
+
 
 .top{
     height:600px;
-    margin: 0 auto;
+    margin: 0px auto;
     padding-top: 200px;
     display: block;
     width: 100%;
@@ -253,10 +212,7 @@ html, body{
             url("https://i.ibb.co/yS2hND7/appartement1-5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
-        nav{
-            margin: auto;
-        }
+    text-align: center;
     
         h1{
         font-size: 2em;
@@ -274,130 +230,58 @@ html, body{
 
     &__research-form{
         @include flex;
-        width: 80%;
+        justify-content: center;
         margin: 90px auto;
+        
 
-     .details{
-         width: 90%;
-        .label{
+        &__label{
             color: $white;
             margin: auto 20px;
-            position: relative;
 
             input{
                 @include input($white, $black);
+                color: $black;
                 margin: 5px auto;
                 width: 180px;
-                color: white;
-            }
-
-            img{
-                width: 30px;
-                position: absolute;
-                left: 10px;
-                top: 40px;
             }
 
             select{
                 @include select;
                 width: 180px;
             }
-        }
 
-        button{
-            color: $white;
-            height: 40px;
-        }
-
-        i{
-            color: $white;
-        }
-    }
-        .details-submit{
-            width: 90%;
-            margin: 20px auto;
-            text-align: right;
-
-            button{
-                height: 45px;
-                @include button($white, $yellow, $yellow);
-                float: right;
-                 margin: auto 10px auto auto;
-    
-                i{
-                    color: $white;
-                    font-size: 1em;
-                }
-               
-            }
-    
-        }   
- }
-
-}
-
-.register{
-    background-color: $blue;
-    height: auto;
-    padding-top: 120px;
-
-    form{
-        @include form;
-        margin: auto;
-        height: auto;
-
-        h1{
-            color: $blue;
-        }
-
-        label{
-            width: 90%;
-            margin: auto;
-            @include label;
-            color: $blue;
-            text-align: left;
-
-
-            input{
-                @include input;
-                background-color: $white;
-                width: 320px;
+            .fa-search{
+                display: none;
             }
         }
 
-        .form__button{
-            @include button;
-            background-color: $blue;
-            width: 130px;
-            margin: 15px auto 20px auto;
+        &__submit{
+            margin: auto 20px;
+            height: 45px;
+            @include button($white, $yellow, $yellow);
+           
         }
     }
+
 }
 
 .about-section{
    @include flex(column);
-   padding-top: 30px;
-   text-align: center;
 
-   h1{
-       margin: 30px auto;
+   &__title{
+       color: $blue;
+       margin: 90px auto;
        font-weight: 800;
-       font-size: 1.9em;
-       width: 50%;
-       text-align: center;
    }
 
    &__content{
        @include flex();
        @include content;
-       margin: 20px auto;
+       margin: 0 auto;
 
        &__picture{
            display: block;
            flex: 1;
-           text-align: center;
-           margin: auto;
-           width: 100%;
 
           .background{
             position: relative;
@@ -405,8 +289,6 @@ html, body{
             width: 350px;
             background-color: #071339;
             border-radius: 15px;
-            margin: 10px auto;
-
             img{
                 width: 400px;
                 height: 300px;
@@ -426,28 +308,27 @@ html, body{
            img{
                width: 80px;
                height: 50px;
-               margin: 30px auto 10px 0;
+               margin: 0 auto 50px 0;
            }
 
            .title{
                margin: auto 0;
-               font-weight: 500;
+               width: 70%;
            }
 
            .text{
-               width: 80%;
-               font-weight: 500;
-               font-size: 1.1em;
+               width: 100%;
                text-align: justify;
+               font-size: 1.2em;
                line-height: 1.3em;
-               margin: 10px auto;
+               margin: 40px auto auto 0;
            }
 
            .link{
               @include input($yellow, $yellow);
             
             text-align: center;
-            margin: 10px auto;
+            margin: 40px auto;
                 a{
                     margin: auto;
                 }
@@ -456,188 +337,40 @@ html, body{
    }
 }
 
-.categories__list__post__item{
-    display: none;
-    padding-top: 80px;
-    @include content();
-    text-align: justify;
 
-    .row{
-        @include flex(column);
-        .post{
-            .categories__post__item__pic{
-                text-align: left;
-                .post__meta{
-                    h4{
-                        color: $blue;
-                    }
-                    
-                }
-            }
 
-            ul{
-                li{
-                    display: inline;
-                    font-weight: bold;
-                }
-            }
-
-            h3{
-                margin: auto;
-                @include title();
-                font-size: 1.8em;
-                font-weight: bold;
-            }
-        }
-    }
-}
-
-.reasons-section{
-    @include flex(column);
-    padding-top: 30px;
-    margin: 70px auto;
- 
-    &__title{
-        color: $blue;
-        margin: 30px auto;
-        font-weight: 800;
-        font-size: 2em;
-    }
- 
-    &__content{
-        @include flex();
-        @include content;
-        margin: auto;
-        text-align: center;
- 
-        &__picture{
-            display: block;
-            flex: 1;
-            margin: 10px auto;
-            text-align: center;
- 
-           .background{
-             position: relative;
-             height: 400px;
-             width: 350px;
-             background-color: #071339;
-             border-radius: 15px;
-             float: right;
-             img{
-                 width: 400px;
-                 height: 300px;
-                 border-radius: 15px;
-                 position: absolute;
-                 top: 50px;
-                 right: 30px;
-             }
-           }
- 
-        }
- 
-        &__details{
-            display: block;
-            flex: 1;
-            text-align: left;
-            
- 
-            img{
-                width: 80px;
-                height: 50px;
-                margin: 30px auto 10px 0;
-            }
- 
-            .title{
-                margin: auto 0;
-                font-weight: 400;
-            }
- 
-            .text{
-                width: 100%;
-                font-size: 1.2em;
-                font-weight: 400;
-                line-height: 1.3em;
-                margin: 10px auto auto 0;
-                text-align: left;
-                
-               
-            }
-            ul{
-                text-align: left;
-                li{
-                    text-align: left;
-                    margin: auto 0;
-                    list-style: none;
-                    i{
-                        font-size: 1.2em;
-                        color: $yellow;
-                    }
-                  
-                }
-            }
- 
-            .link{
-               @include input($yellow, $yellow);
-             
-             text-align: center;
-             margin: 10px auto;
-
-                 a{
-                     margin: auto;
-                 }
-            }
-        }
-    }
- }
-
-.appartements{
+.appartments{
     width: 100%;
-    padding-top: 100px;
     @include flex(column);
+    padding-top: 90px;
 
     &__title{
         @include title;
     }
 
-    .req-sub{
-        font-size: 1.1em;
-        margin: auto;
-
-        span{
-            color: $blue;
-            font-weight: bold;
-        }
-    }
-
-    &__text{
-        font-size: 1.1em;
-        margin: auto;
-
-        span{
-            color: $blue;
-            font-size: 1.3em;
-            font-weight: bolder;
-        }
-    }
-
     &__content{
-        @include flex;
         margin: auto;
-
+        width: 100%;
+        @include flex();
+        position: relative;
+       
         &__details{
             padding-top: 30px;
-            margin: auto;
-
+            margin: auto 0;
+            width: 65%;
+            
             .item{
-                width: 800px;
+                width: 550px;
                 margin: auto auto 40px auto;
                 
                 img{
-                    width: 750px;
-                    height: 400px;
+                    width: 540px;
+                    height: 300px;
+                    border-radius: 10px;
+                    margin: auto;
                 }
 
-                .appartement__name{
+                .appartment_name{
                     @include title();
                     font-size: 1.9em;
                     font-weight: 700;
@@ -681,263 +414,236 @@ html, body{
 
                     .book{
                         @include input($blue, $blue);
+                        color: $white;
                     }
 
-                    .book:hover{
-                        @include input($yellow, $yellow);
-                        width: auto
-                    }
 
                     .details{
                         @include input($yellow, $yellow);
                         width: 180px;
-                    }
-
-                    .details:hover{
-                        @include input($blue, $blue);
-                        width: 180px;
+                        color: $white;
                     }
                 }
             }
-
-         
         }
 
         &__form{
             @include form;
-            width: 30%;
-            margin: -90px auto;
-            height: 600px;
+            height: 400px;
+            right: 50px;
+            width: 280px;
+            margin: 40px auto;
+            background-color: $yellow;
+            padding-top: 20px;
+            position: absolute;
 
-
-           .form{
-               height: 450px;
-               margin: auto 15px;
-               float: left;
-
-            &__label{
-                @include label;
-    
-                    input{
-                        @include input($white, $white);
-                        color: $blue;
-                        width: 200px;
-                    }
-    
-                    select{
-                        @include input($white, $white);
-                        color: $blue;
-                        width: 200px;
-                    }
-                }
-    
-                &__submit{
-                    @include input($blue, $blue);
-                    color: $white;
-                    width: 200px;
-                    height: 50px;
-                    margin: 40px auto;
-
-                    a{
-                        color: white;
-                    }
-                }
-    
-                &__submit:hover{
+            .form_label{
+            @include label;
+            margin: 0px auto;
+                input{
                     @include input($white, $white);
-                    width: 200px;
-                    height: 50px;
                     color: $blue;
-                    margin: 40px auto;
+                    width: 200px;
                 }
-           }
+
+                select{
+                    @include input($white, $white);
+                    color: $blue;
+                    width: 200px;
+                }
+            }
+
+            .form_submit{
+                @include input($blue, $blue);
+                color: $white;
+                width: 200px;
+                height: 50px;
+                margin: 20px auto;
+            }
+
+            .form_submit:hover{
+                @include input($white, $white);
+                width: 200px;
+                height: 50px;
+                color: $blue;
+                margin: 40px auto;
+            }
+
+            }
+        }
+}
+
+.appartment{
+    display: block;
+    width: 80%;
+    text-align: left;
+    color: $blue;
+    margin: auto;
+    padding-top: 50px;
+
+
+    &__top{
+        top: 0;
+        width: 100%;
+        @include flex();
+
+
+        &__left{
+            text-align: left;
+            width: 65%;
+            display: block;
+
+            .retour{
+                color: $blue;
+                font-weight: 500;
+                font-size: large;
+                margin: 20px auto;
+            }
+
+            .title{
+                @include title();
+                text-align: left;
+                color: $yellow;
+                font-size: 1.9em;
+                font-weight: bold;
+                margin: 0px auto;
+            }
+
+            h2{
+                font-size: 1.2em;
+                    font-weight: bold;
+                margin: 20px auto 20px 0;
+                text-align: left;
+            }
+
+            p{
+                margin: 10px auto;
+               
+                ul{
+
+                    li{
+                        margin: 25px auto;
+                        width: 80%;
+                    }
+                }
+            }
+
+
+        }
+
+        &__right{
+          width: 30%;
+          background-color: $yellow;
+          margin: 0 auto;
+          padding-top: 50px;  
+
+          .form{
+            width: 70%;
+            margin: auto;
+            @include flex(column);
+            text-align: left;
+
+            p{
+                color: white;
+            }
+
+            strong{
+                font-size: 0.8em;
+                color: white;
+            }           
+             label{
+                width: 80%;
+                margin: 10px auto auto 0;
+                text-align: left;
+
+                input{
+                    height: 40px;
+                    margin: auto 0;
+                    width: 170px;
+                    color: $blue;
+                }
+
+                select{
+                    height: 40px;
+                    width: 170px;
+                }
+
+                button{
+                    color: white;
+                    background-color: $blue;
+                    font-weight: bold;
+                    width: 170px;
+                    height: 40px;
+                }
+            }
+          }
+        }
+    }
+
+    .items{
+        padding-left: 30px;
+        @include flex();
+        width: 80%;
+        margin: 10px auto auto 0;
+
+        .item__left, .item__right{
+            display: block;
+            flex: 1;
+
+            .item{
+                margin: 10px auto;
+
+                img{
+                    width: 50px;
+                    height: 30px;
+                    margin-left: 10px;
+                }
+            }
+
+        }
+    }
+
+    .gallery{
+        display: block;
+
+        &__top, &__bottom{
+            @include flex();
+            padding-left: 0;
+            padding-right: 0;
+            margin: 10px auto;
+
+            a{
+                flex: 1;
+
+                img{
+                    width: 90%;
+                    margin: auto;
+                }
+            }
+
+            a:hover{
+                background-color: #575a83;
+                img{
+                    transform: scale(1.1);
+                }
+            }
         }
     }
 }
 
-.appartement{
-    display: block;
-    padding-top: 80px;
+.booking{
+    width: 600px;
+    margin: auto;
+    text-align: center;
+    @include box();
+    padding: 10px;
 
-    &__content{
-        @include flex;
-        flex-direction: row;
-        margin: auto auto 40px auto;
-        width: 90%;
-
-        &__details{
-            width: 60%;
-            text-align: justify;
-            margin: 20px auto;
-            
-            p{
-                img{
-                    margin: auto 20px auto auto;
-                    width: 30px;
-                }
-            }
-
-            .appartement__name{
-            }
-
-            .appartement__extract{
-                text-align: justify;
-                font-size: 1.2em; 
-                margin: 10px auto;
-            }
-
-            .appartement__description{
-               text-align: justify;
-               font-size: 1.3em;
-               margin: 15px auto; 
-            }
-
-            .appartement__price{
-                font-size: 1.3em;
-                span{
-                    color: $yellow;
-                font-weight: bold;
-                font-size: 1.5em;
-                }
-            }
-
-            .appartement__furniture{
-                @include flex();
-                flex-direction: row;
-                padding-top: 10px;
-                margin-bottom: 15px;
-
-                ul{
-                    flex: 1;
-                    li{
-                        display: table;
-                        margin: 10px auto auto 0;
-
-
-                        img{
-                            width: 40px;
-                            display: table-cell;
-                            vertical-align: middle;
-                            margin: auto 15px auto auto;
-                        }
-
-                        span{
-                            color: $blue;
-                            display: table-cell;
-                            vertical-align: middle;
-                            margin: auto 5px;
-                            font-size: 1.3em;
-                        }
-                    }
-                }
-            }
-
-            h2{
-                font-size: 1.7em;
-                font-weight: bold;
-                color: $blue;
-            }
-
-            .book{
-                text-align: center;
-                @include button($white, $blue, $blue);
-                margin: 15px auto;
-
-                a{
-                    color:$white;
-                }
-            }
-
-        }
-
-        &__form{
-            @include form;
-            width: 30%;
-            margin: -5px auto;
-            height: 600px;
-
-
-           .form{
-               height: 400px;
-               margin: auto 15px;
-               float: left;
-
-            &__label{
-                @include label;
-    
-                    input{
-                        @include input($white, $white);
-                        color: $blue;
-                        width: 200px;
-                    }
-    
-                    select{
-                        @include input($white, $white);
-                        color: $blue;
-                        width: 200px;
-                    }
-                }
-    
-                &__submit{
-                    @include input($blue, $blue);
-                    color: $white;
-                    width: 200px;
-                    height: 50px;
-                    margin: 40px auto;
-                }
-    
-                &__submit:hover{
-                    @include input($white, $white);
-                    width: 200px;
-                    height: 50px;
-                    color: $blue;
-                    margin: 40px auto;
-                }
-           }
+    .form{
+        .row{
+            text-align: left;
         }
     }
 
-    &__gallery{
-        width: 100%;
-        display: block;
-
-        &__top{
-            @include flex;
-            width: 90%;
-            margin: auto;
-
-            img{
-                width: 330px;
-                height: auto;
-                @include image();
-            }   
-
-            img:hover{
-                transform: scale(1.1);
-            }
-        }
-
-        &__bottom{
-            @include flex;
-            width: 90%;
-            margin: 10px auto;
-            text-align: center;
-
-            a{
-                flex: 1;
-                img{
-                    @include image();
-                   width: 80%;
-                }
-    
-                img:hover{
-                    transform: scale(1.1);
-                }
-            }
-
-            
-        }
-    }
 }
 
 .about{
@@ -957,17 +663,10 @@ html, body{
         width: 80%;
         margin: 20px auto;
 
-            &__image{
+            img{
                 @include image();
                 width: 350px;
                 height: 250px;
-                margin: 40px auto;
-                display: table;
-
-                img{
-                    display: table-cell;
-                    vertical-align: middle;
-                }
             }
     
         &__text{
@@ -981,52 +680,187 @@ html, body{
             }
         }
    }
+}
 
-   &__reasons{
-       &__title{
-           @include title();
-       }
+.gallery{
+    margin: 40px auto;
+    display: block;
+        height: auto;
 
-          &__items{
-            @include flex;
-            @include content;
-            margin: 10px auto;
-            .item{
-                width: 280px;
-                transition: 500ms ease-in-out;
-                border: 1px solid $grey;
-                height: 280px;
-                margin: 15px;
-                display: block;
-                background-color: $grey;
-                text-align: center;
-                cursor: pointer;
-                transition: 500ms ease-in-out;
-    
-                i{
-                    color: $blue;
-                    font-size: 1.5em;
-                    margin: 30px auto;
+    h2{
+        font-size: 2.2em    
+    }
+
+    &__content{
+        @include flex();
+        width: 100%;
+        margin: 50px auto;
+        text-align: center;
+        
+
+        .slide{
+            height: auto;
+            width: 450px;
+            border-radius: 20px;
+            margin: 70px 10px auto 10px;
+            flex: 1;
+            text-align: center;
+            background-color: rgb(213, 218, 220);
+
+            &__img{
+                width: 300px;
+                height: 250px;
+                position: relative;
+                margin: 15px auto;
+
+                .like{
+                    position: absolute;
+                    top: 5px;
+                    left: 5px;
+                    z-index: 99999;
                 }
 
-                h3{
-                    font-size: 1.3em;
+                .price{
+                    width: 140px;
+                    font-size: 0.6em;
+                    height: 40px;
+                    border-radius: 20px;
+                    background: $blue;
+                    color: white;
+                    position: absolute;
+                    top: 5px;
+                    padding-top: 0;
+                    padding-bottom: 2px;
+                    right: 5px;
+                    z-index: 99999;
                 }
-               }
-            .item:hover{
-                transform: scale(1.1);
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
             }
-          }
-       }
-   }
 
+            h3{
+                font-size: 1.1em;
+                font-weight: bold;
+                margin: 10px auto;
+            }
+
+            .details{
+                color: $yellow;
+            }
+
+            p{
+                span{
+                    font-weight: bold;
+                }
+            }
+        }
+
+    }
+
+    &__blue{
+        height: 330px;
+        margin: -150px auto;
+        background-color:  $blue;
+        width: 100%;
+        padding-top: 120px;
+
+        &__btns{
+            width: 250px;
+            margin: auto auto 10px auto;
+            @include flex();
+
+            .btn{
+                color: wheat;
+                color: $yellow;
+                margin: 5px;
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.testimonies{
+    height: 400px;
+    display: block;
+    background-color: $yellow;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    &__slides{
+        width: 70%;
+        height: auto;
+        height: 250px;
+        margin: auto;
+
+        &__testimony{
+            width: 70%;
+            @include flex();
+            margin: auto;
+
+            img{    
+                width: 150px;
+                height: 150px;
+                border-radius: 100px;
+                margin: auto 0 50px auto;
+            }
+
+            .text{
+                display: block;
+                padding-left: 30px;
+                text-align: left;
+                width: 60%;
+                margin: auto 0;
+
+                span{
+                    font-size: 3em;
+                    font-weight:  bold;
+                }
+
+                p{
+                    margin: 5px auto;
+                }
+
+                .happy{
+                    color: white;
+                }
+
+
+
+
+            }
+
+
+        }
+
+    }
+
+        &__btns {
+            width: 150px;
+            margin: auto auto 10px auto;
+            @include flex();
+    
+            .btn {
+                color: wheat;;
+                margin: 5px;
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+        }
+}
 
 .dashboard{
-    width:  95%;
-    margin: auto;
-    padding-top: 100px;
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+    height: auto;
+    @include flex;
+    margin: 10px auto;
   
     &__menu{
       width:25%;
@@ -1034,38 +868,24 @@ html, body{
       display: block;
   
       &__list{
-        height: 176px;
-        width: 275px;
+        height: 228px;
+        width: 220px;
         margin: auto;
         border: 2px $blue solid;
         border-radius: 10px;
         overflow: hidden;
   
         .menu-link{
-          height: 35px;
+          height: 30px;
           width: 100%;
-          display: table;
           cursor: pointer;
           text-align: left;
-          border-bottom: 1px $blue solid;
-          @include flex;
-          padding-top: 5px;
           padding-left: 5px;
+          padding-top: 15px;
+          border-bottom: 1px $blue solid;
   
           a{
             color: $black;
-            display: table-cell;
-            vertical-align: middle;
-            font-size: 1.1em;
-
-            i{
-            color: $black;
-            margin-right: 5px;
-            }
-
-            p{
-                color:$black;
-            }
           }
         }
   
@@ -1073,21 +893,13 @@ html, body{
           background-color: $blue;
           a{
             color: $white;
-
-            i{
-                color: $white;
-            }
           }
         }
   
-        .active{
+        .menu-link-active{
           background-color: $blue;
           a{
             color: $white;
-
-            i{
-                color: $white;
-            }
           }
         }
       }
@@ -1095,10 +907,9 @@ html, body{
   
     &__main{
       display: block;
-      width: 90%;
+      width: 75%;
       border-radius: 20px;
       text-align: center;
-      margin: auto;
   
       &__heading{
         background-color: $black;
@@ -1107,7 +918,6 @@ html, body{
         @include flex;
         padding-top: 50px;
         padding-left: 40px;
-        border-radius: 15px;
   
         .dashboard-title{
           h1{
@@ -1137,7 +947,7 @@ html, body{
           right: 0;
   
           &__item{
-            height: 200px;
+            height: 150px;
             width: 200px;
             border: 1px $white solid;
             box-shadow: 0px 10px 12px #00000029;
@@ -1154,7 +964,7 @@ html, body{
             }
   
             p{
-              margin: 20px auto;
+              margin: 40px auto;
               font-size: 1.2em;
               color: $black;
               font-weight: bold;
@@ -1274,166 +1084,91 @@ html, body{
 }
 
 .add{
+    width: 100%;
     text-align: center;
-    background-color: $blue;
-    padding-top: 80px;
-    padding-bottom: 20px;
+
+    &__back-link{
+        color: $black;
+        font-size: 1.2em;
+
+        img{
+            width: 80px;
+            margin: auto 10px;
+        }
+
+        a{
+            color: $black;
+        }
+    }
 
     &__form{
         @include form;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         height: auto;
-        width: 600px;
+        width: 500px;
         text-align: left;
         padding-left: 30px;
         padding-right: 30px;
         color: $white;
-        text-align: center;
 
-        a{
-            float: right;
-            margin: auto 20px auto auto;
+        &__label{
+            @include label;
+            color: $white;
 
-            i{
+            input{
                 color: $blue;
-                font-size: 1.3em;
+                @include input($white, $white);
             }
+
+            select{
+                @include select;
+                height: 30px;
+                width: 200px;
+            }
+
+            .extract{
+                width: 480px;
+                height: 150px;
+                color: $black;
+                padding-top: 0px;
+            }
+
+            .appartement__description{
+                width: 480px;
+                height: 250px;
+                color: $black;
+                padding-top: 0px;
+            }
+
+
         }
 
-        &__title{
-            margin: 15px auto;
-        }
-
-    &__content{
-        @include flex();
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 100%;
-        text-align: center;
-
-        .left{
-            text-align: center;
-            flex: 1;
-            margin: auto;
-
-            h1{
-                @include title();
-                margin: auto;
-            }
-
-            h2{ 
-            color: $blue;
-            border-bottom: 1px solid $black;
-            margin: 20px auto;
-            }
+        &__details{
+            @include flex;
+            width: auto;
+            margin: auto 0;
             
-           .details{
-               @include flex;
-               width: auto;
-               margin: 15px auto;
+            label{
+                margin: auto 10px;
+                .rooms{
+                    @include input($white, $white);
+                    width: 60px;
+                    height: 30px;
+                }
 
-             
-               label{
-                   margin: auto 10px;
-                   color: $blue;
-                   .rooms{
-                       @include input($white, $white);
-                       width: 60px;
-                       height: 30px;
-                   }
-   
-                   .daily_price{
-                       @include input($white, $white);
-                       width: 120px;
-                       height: 30px;
-                   }
-   
-                   .appartement_name{
-                       @include input($white, $white);
-                       width: 200px;
-                       height: 30px;
-                       
-                   }
-               }
-           }
+                .daily_price{
+                    @include input($white, $white);
+                    width: 120px;
+                    height: 30px;
+                }
 
-           .extract,
-           .description,
-           .more_infos {
-               width: 100%;
-               height: 150px;
-               font-weight: bold;
-               color: black;
-               margin: 10px auto;
-
-               input{
-                line-height: 1.2em;
-                font-weight: bold;
-                padding-top: 0;
-               }
-           }
-        }
-   
-       .right{
-           flex: 1;
-           h2{
-            color: $blue;
-            border-bottom: 1px solid $black;
-            margin: 20px auto;
-        }
-
-            .details-images{
-                text-align: center;
-                display: flex;
-                justify-content: space-between;
-                flex-direction: row;
-
-                label{
-                    color: $black;
-                    margin: 10px auto;
-                    font-weight: bold;
-
-                    input{
-                        width: 100px;
-                    }
+                .appartement_name{
+                    @include input($white, $white);
+                    width: 200px;
+                    height: 30px;
+                    
                 }
             }
-
-           .details{
-               @include flex;
-               flex-direction: row;
-               width: 100%;
-               margin: 20px auto;
-
-               ul{
-                   flex: 1;
-
-                   li{
-                       text-align: left;
-                       margin: 10px auto;
-                    label{
-                        margin: 10px auto;
-                        text-align: left;
-                        color: black;
-                        font-weight: bold;
-     
-                        input{
-                            width: 100px;
-                            float: right
-                        }
-                    }
-                   }
-               }
-               
-           }
-
-
         }
-    }
 
         &__pictures{
             @include flex;
@@ -1450,8 +1185,13 @@ html, body{
         &__button{
             @include input($blue, $blue);
             color: $white;
-            margin: 10px auto;
-            padding: 5px;
+            margin: 40px auto;
+        }
+
+        &__button:hover{
+            @include input($white, $white);
+            color: $blue;
+            margin: 40px auto;
         }
     }
 }
@@ -1494,250 +1234,338 @@ html, body{
     }
 
 .reservation{
-    text-align: center;
-    background-color: $blue;
-    padding-top: 140px;
+    padding-top: 120px;
 
-    &__form{
-        @include form;
-        width: 450px;
-        height: auto;
-        margin: auto;
-        text-align: center;
-
-        a{
-            color: $blue;
-            margin: auto 15px auto auto;
-            float: right;
-        }
-
-        &__title{
-            color: $blue;
-        }
-
-        &__details{
-            width: 90%;
-            margin: 10px auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            text-align: center;
-
-            label{
-                text-align: left;
-                width: 200px;
-
-                input{
-                    @include input($white, $white);
-                    width: 190px;
-                }
-
-                select{
-                    @include input($white, $white);
-                    width: 190px;
-                }
-            }
-
-            .email{
-                width: 100%;
-                text-align: left;
-                input{
-                    width: 97%;
-                }
-            }
-        }
-
-       button{
-           @include button($white, $blue, $blue);
-           margin-bottom: 20px;
-       }
-    }
-}
-
-.gallery{
-    width: 100%;
-    height: auto;
-    padding-top: 100px;
-    display: block;
-    text-align: center;
     
-    &__title{
-        @include title();
-    }
-
-    &__items{
-        @include flex();
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        margin-bottom: 20px;
-        margin: auto;
-        text-align: center;
-
-        img{
-            height: 250px;
-            margin: 15px;
-            width: 300px;
-            transition: 500ms ease-in-out;
-            cursor: pointer;
-        }
-
-        img:hover{
-            transform: scale(1.1);
-        }
-    }
 }
 
 .contact{
+    width: 80%;
+    margin: auto auto 20px auto;
     display: block;
     padding-top: 100px;
 
-    &__top{
-        &__boxes{
-            @include content();
-            @include flex(row);            
-            .box{
-                width: 250px;
-                border: 1px solid $grey;
-                height: 250px;
-                margin: 15px;
-                display: block;
-                background-color: $grey;
-                text-align: center;
-                cursor: pointer;
-                transition: 500ms ease-in-out;
+    label{
+        font-size: 1.1em;
+        margin: 15px auto;
 
-                i{
-                    color:$blue;
-                    font-size: 2em;
-                    margin: 30px auto;
-                    text-align: center;
-                }
+        input{
 
-                h2{
-                    @include title;
-                    font-weight: bold;
-                    font-size: 1.2em;    
-                }
-            }   
+        }
 
-            .box:hover{
-                transform: scale(1.1);
-            }
+        button{
+            @include button;
         }
     }
 
-    &__bottom{
-        @include content;
-
-            .form{
-                @include content;
-                label{
-                    margin: 10px auto;
-                    font-size: 1em;
-                    font-weight: bold;
-                    
-                    input{
-                        background-color: $grey;
-                        height: 40px;
-                        border: 1px solid $grey;
-                        width: 80%;
-                    }
-
-                    textarea{
-                        width: 80%;
-                        background-color: $grey;
-                        height: 150px;
-                    }
-                }
-
-                button{
-                    @include button($white, $blue, $blue);
-                    width: auto;
-                    font-size: 0.9em;
-                    padding: 5px;
-                    margin: 10px auto;
-                }
-            }
+    textarea{
+        margin: 15px auto;
     }
 }
 
-.login{
-    padding-top: 80px;
-    background-color: $blue;
+.post{
+    padding-top: 110px;
+    margin: 15px auto;
+    width: 80%;
+    margin: auto;
     text-align: center;
-    height: auto;
-    padding-bottom:  40px;
+    min-height:  90vh;
 
-    img{
-        width: 150px;
-        margin: 10px auto;
+    &__title{
         text-align: center;
+        margin: 10px auto;
     }
 
-    .form{
-        width: 300px;
-        @include form;
+    &__text{
+        text-align: center;
 
-       
+    }
+}
 
-        a{
-            float: right;
-            margin: auto 15px auto auto;
+.posts-section{
+    width: 100%;
+    padding: 10px;
 
-            i{
-                color: $blue;
+    .item{
+        width: 250px;
+        margin: auto;
+
+        &__title{
+            margin: 10px auto;
+        }
+
+        img{
+            width: 200px;
+            height: 150px;
+            margin: 10px auto;
+        }
+
+        &__text{
+            text-align: center;
+            margin: 10px auto;
+        }
+    }
+}
+
+.list{
+    width: 100%;
+    text-align: center;
+    margin: 90px auto;
+    position: relative;
+    
+
+    &__content{
+        width: 100%; 
+        margin: 20px auto;
+        top: 20px;
+
+
+        &__form{
+            
+            width: 90%;
+            padding: 10px;
+            margin: 30px auto;
+            @include box();
+
+            h2{
+                @include title();
+                
             }
         }
+        
 
         &__title{
             @include title();
         }
 
-        label{
-            @include label();
-            color: $blue;
-
-            input{
-                @include input($white, $white);
-                width: 250px;
-            }
-
-        }
-
-        .form__submit{
-            @include button;
-            background-color: $blue;
-            color: white;
-            border-color: $blue;
-            margin: 20px auto;
-            width: 150px;
+        &__options{
+            margin: 15px auto;
         }
     }
+
 }
+
+
+nav {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    background-color: white;
+    z-index: 99999;
+    top: 0;
+}
+
+label.logo {
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 50px;
+    font-weight: bold;
+}
+
+label.logo img {
+    margin: 10px auto;
+    height: 50px;
+    width: 170px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: #222563;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: auto 10px;
+    cursor: pointer;
+}
+
+.login-link {
+    border-radius: 3px;
+    border: 1px #222563;
+    width: 100%;
+    background-color: #222563;
+    color: white;
+    padding: 3px;
+}
+
+.login-link:hover {
+    color: #D1AF52;
+    background-color: #222563;
+}
+
+a.active,
+a:hover {
+    transition: .5s;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width: 952px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px) {
+    .checkbtn {
+        display: block;
+    }
+
+    .checkbtn i {
+        color: black;
+    }
+
+    nav {
+        position: fixed;
+        background-color: #222563;
+    }
+
+    nav {
+        position: fixed;
+        z-index: 9999;
+    }
+
+    nav label img {
+        top: 5px;
+        left: 5px;
+        position: absolute;
+    }
+
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    a:hover,
+    a.active {
+        background: none;
+        color: #D1AF52;
+    }
+
+    #check:checked~ul {
+        left: 0;
+    }
+}
+
+section {
+    background-size: cover;
+    z-index: 1;
+    opacity: 1;
+}
+
+.table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table td,.table th{
+  padding:12px 15px;
+  border:1px solid #ddd;
+  text-align: center;
+  font-size:16px;
+}
+
+.table th{
+	background-color: $blue;
+	color:#ffffff;
+}
+
+.table tbody tr:nth-child(even){
+	background-color: #f5f5f5;
+}
+
+/*responsive*/
+
+@media(max-width: 500px){
+	.table thead{
+		display: none;
+	}
+
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+}
+
 
  .footer{
      @include flex(column);
      width: 100%;
      background-color: $yellow;
+     margin: 60px auto 0 auto;
 
      &__top{
-         height: 75px;
+         height: 50px;
          background-color: $blue;
      }
 
-
-     hr{
-         margin: 100px auto 50px auto;
-
-     }
-
      &__bottom{
-         height: auto;
+         height: 200px;
          @include flex;
+         padding-top: 20px;
          @include content();
-         text-align: left;
-         width: 90%;
 
          &__infos{
              .footer-logo{
@@ -1746,391 +1574,289 @@ html, body{
                  width: 150px;
                  padding-left: 20px;
                  background-color: $blue;
-                 margin-top: 30px;
-
+                
                  img{
-                    width: 120px;
+                    width: 90px;
                     height: 35px;
-                    
+                    margin: auto;
                  }
              }
 
-             ul{
-                 margin: 15px auto;
-                 li{
-                     display: table;
+             .footer-adress{
+                 margin: 8px auto;
+                 @include flex;
+                 width: auto;
+                 img{
+                     width: 30px;
+                     margin: auto 0 auto 0;
+                 }
+                 
+                 p{
                      color: $blue;
                      margin: auto 0;
-
-                     img{
-                         width: 30px;
-                         display: table-cell;
-                         vertical-align: middle;
-                     }
-
-                     
+                     text-align: left;
                  }
+            
              }
          }
-         
 
          &__menu{
-             text-align: left;
              h3{
                  color: $blue;
+
              }
 
-             .footer-logo img{
-                width: 120px;
-            }
-
-             ul{
-                 text-align: left;
-                 margin: auto 0;
-
+             ul {
+                 margin:8px auto;
                  li {
-                    text-align: left;
-                    margin: auto -30px;
-                    color: $blue;
-    
-                    img{
-                        width: 80px;
-                        float: left;
+                    list-style: none;
+                    a{
+                        color: $blue;
+                        
 
                     }
-                    a{
-                        color: $blue
-                    }
-    
-                    img{
-                        width: 80px;
-                        height: 80px;
-                        display: none;
-                    }
-    
-                  
                  }
              }
-
-             form{
-                label{
-                    color: $blue;
-                    @include flex();
-                    width: 170px;
-                    
-                    input{
-                        width: 100px;
-                        margin: 0;
-                    }
-
-                    button{
-                        @include button;
-                        background-color: $blue;
-                        color: color;
-                        width: 50px;
-                        margin: auto 0;
-
-                        i{
-                            color: white;
-                            font-size: 1.1em;
-                            margin: auto;
-                        }
-                    }
-
-                }
-
-               
-            }
          }
      }
 
      &__copyright{
-        text-align: center;
-        color: $blue;
-        width: 80%;
         margin: auto;
+     }
+ }
+
+ 
+ /*responsive for 1280px*/
+ @media screen and (min-width: 1280px){
+    .top{     
+        &__research-form{
+            width: 90%;
+        }
     }
-
-
-
+ 
  }
 
  /*responsive for 1024px*/
- @media screen and (min-width: 1024px) and (max-width: 1279px){
-  .top{  
-      &__research-form{
-          width: 80%;
+ @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    h2{
+        font-size: 2.4em;
+        width: 80%;
+    }
+   
+    .top{
         
-          &__label{
-              button{
-                  display: none;
-              }
+        &__research-form{
+            width: 90%;
 
-              i{
-                  display: block;
-                  font-size: 1.5em;
-                 }
-          }
-      }
-  }
-
-  .about-section{
-    &__title{
-        text-align: center;
-        margin: auto;
-    }
-      &__content{
-        width: 90%;
-
-        &__picture{
-            .background{
-             width: 300px;
-            height: 300px;
-
-            img{
-                width: 300px;
-                height: 250px;
-            }
-            }
-        }
-
-        &__details{
-            img{
-                width: 40px;
-                height: 40px;
-                margin: 0 auto;
-            }
-
-            .text{
-                margin: 10px auto;
-                width: 80%;
-            }
-
-            .link{
-                margin: 10px auto;
-            }
-        }
-  
-    }
-  }
-
-  .reasons-section{
-
-      &__title{
-          margin: 0px auto;
-      }
-
-      &__content{
-          width: 60%;
-
-          &__picture{
-              padding-right: 80px;
-              
-            .background{
-                height: 350px;
-                width: 300px;
-                padding-right: 50px;
-
-                img{
-                    width: 350px;
-                    height: 250px;
-                    
+            &__label{
+                input{
+                    width: 130px;
                 }
             }
-          }
+        }
+    }
+         
 
-          &__details{
-              img{
-                  width: 40px;
-                  height: 40px;
-                  margin: 10px auto 10px auto;
-              }
+    .about-section{
+        width: 100%;
 
-              .text{
-                  margin: 10px auto;
+        &__title{
+            width: 70%;
+            text-align: center;
+        }
+        
+        &__content{
+            margin: 0 auto;
+            &__picture{
+                .background{
+                    width: 250px;
+                    height: 300px;
 
-              }
+                    img{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            } 
+        
+            &__details{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto 0 auto;
+                }
+                
+                .title{
+                    width: 100%;
+                }    
 
-              .link{
-                  margin: 10px auto;
-              }
-          }
-      }
-  }
+                .text{
+                    text-align: justify;
+                    margin: 5px auto;
+                }
 
-  .appartments{
-      &__content{
-          width: 100%;
-          &__details{
-                margin-right:  15px;
-              .item{
-                width: 550px;
-                  img{
-                      width: 550px;
-                  }
-              }
-          }
+                .link{
+                    margin: 10px auto;
 
-          &__form{
-              width: 300px;
-          }
-      }
-  }
+                }
+            }
+        }
+    }
 
-  .dashboard{
-      &__menu{
-          display: none;
-      }
-  }
+    .reasons-section{
+        width: 100%;
 
-  .add{
-      &__form{
-          width: 90%;
+        &__title{
+        }
+        
+        &__content{
+            &__picture{
+                margin: 70px auto;
+                .background{
+                    width: 250px;
+                    height: 300px;
 
-          &__content{
-              width: 90%;
-              margin: auto;
-              height: auto;
+                    img{
+                        width: 300px;
+                        height: 200px;
+                    }
+                }
+            } 
+        
+            &__details{
+                img{
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto 0 auto;
+                }
+                
+                .title{
+                    width: 100%;
+                }    
 
-              .right{
+                .text{
+                    margin: 5px auto;
+                }
 
-                  .details{
-                      height: 400px;
+                .link{
+                    margin: 10px auto;
 
-                      ul{
-                            li{
-                              label{
-                                  color: white;
-                                  input{
-                                      width: 50px;
-                                  }
-                              }
-                          }
-                      }
-                  }
-                 
-              }
-          }
-          
-      }
-  }
+                }
+            }
+        }
+    }
 
-  .footer{
-      margin: 20px auto;
-  }
+    .appartments{
+        &__content{
+            &__form{
+                margin: 30px auto;
+            }
+        }
+    }
+
+    .footer{
+        margin: 50px auto;  
+
+_        &__bottom{
+            &__infos{
+                .footer-logo{
+                    width: 130px;
+                    
+                    img{
+                        width: 100px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+    }
 }
 
-/*responsive for 768px*/
-@media screen and (min-width: 768px) and (max-width: 1024px){
+ /*responsive for 768px*/
+ @media screen and (min-width:768px)and (max-width: 1023px) {
+   h2{
+       font-size: 2.3em;
+   }
+
+   h3{
+       font-size: 1.7em;
+   }
+   
     .top{
+        height: 550px;
+        padding-top: 170px;
+
 
         h1{
             width: 90%;
-            margin: auto;
-            text-align: center;
+            font-size: 1.8em;
         }
 
         &__research-form{
-            width: 80%;
-            text-align: center;
+            width: 95%;
+            
+            &__label{
+                input{
+                    width: 100px;
+                    margin: auto 10px auto auto;
+                }
 
-            label{
-                margin: 20px auto;
+                select{
+                    width: 100px;
+                }
 
-              
-               input{
-                   width: 150px;
-               }
-
-               button{
-                   display: none;
-               }
-
-                i{
-                    display: block;
-                    color: white;
-                    font-size: 1.7em;
+                .fa-search{
+                    display: none;
                 }
             }
-        }
-    }
 
-    .dashboard{
-        &__menu{
-            display: none;
-        }
-
-        &__main{
-            &__background{
-                height: 250px;
-
-                .boxes{
-                    margin: -50px auto;
-
-                    &__item{
-                        width: 150px;
-                        height: 150px;
-                        padding-top: 20px;
-
-                        span{
-                            font-size: 2.2em;
-                        }
-
-                    }
-                }
+            &__submit{
+                
             }
         }
     }
 
     .about-section{
-       
+        margin: -20px auto;
 
-        h2{
-            text-align: center;
-            font-size: 1.7em;
-            width: 80%;
-            margin: auto;
+        &__title{
+            width: 90%;
         }
 
         &__content{
             width: 95%;
-            text-align: center;
+            padding: 5px;
 
+            margin: -70px auto;
             &__picture{
-                margin: 20px auto;
-                flex: 1;
-                width: 100%;
-                text-align: center;
-
+                margin: 30px auto;
                 .background{
-                    height: 300px;
-                    width: 250px;
-                    margin: 10px auto;
-                    text-align: center;
+                    width: 260px;
+                    height: 340px;
 
                     img{
-                        height: 200px;
-                        width: 270px;
-                        margin: auto auto 10px auto ;
+                        width: 290px;
+                        height: 250px;
                     }
                 }
             }
 
             &__details{
-                margin: auto;
-                width: 80%;
                 img{
-                    width: 40px;
-                    height: 40px;
-                    margin: 0 auto;
+                    width: 50px;
+                    height: 50px;
+                    margin: 20px auto 10px auto;
+                }
+
+                .title{
+                    margin: 0 auto 0 0 ;
+                    width: 100%;
                 }
 
                 .text{
-                    margin: 10px auto;
-                }
-
-                .link{
-                    margin: 10px auto;
+                    margin: 10px auto 0  0;
+                    width: 100%;
+                    font-size: 1.1em;
                 }
             }
 
@@ -2138,772 +1864,96 @@ html, body{
     }
 
     .reasons-section{
-        padding-top: 0px;
+        margin: 40px auto;
 
         &__title{
-            margin: 0px auto;
+            width: 70%;
         }
 
         &__content{
             width: 95%;
-            text-align: center;
+            padding: 5px;
 
             &__picture{
-                margin: 40px auto;
-
+                margin: 30px auto;
                 .background{
-                    height: 300px;
-                    width: 250px;
-                    margin: 20px auto;
-                    text-align: center;
+                    width: 260px;
+                    height: 340px;
 
-                        img{
-                            width: 300px;
-                            height: 200px;
-                            
-                        }
-            }
+                    img{
+                        width: 290px;
+                        height: 250px;
+                    }
+                }
             }
 
             &__details{
-                img{
-                    width: 40px;
-                    height: 40px;
-                    margin: 10px auto 10px auto;
+              
+                .title{
+                    margin: 80px auto 0 0 ;
                 }
 
                 .text{
-                    margin: 10px auto;
-                    width: 80%;
+                    margin: 10px auto 0  0;
+                    width: 90%;
+                    font-size: 1.1em;
+                    line-height: 1.2em;
+
+                    ul{
+                        display: block;
+                        li{
+                            display: block;
+                        }
+                    }
                 }
+
+                
 
                 .link{
-                    margin: 10px auto;
+                    margin: 20px auto;
                 }
-
             }
+
         }
+
+
     }
 
-    .appartements{
+    .appartments{
         &__content{
-            width: 100%;
+            flex-direction: column;
+
             &__details{
+                width: 100%;
+                text-align: left;
+                margin: auto;
+
                 .item{
-                  width: 600px;
+                    margin: 30px auto;
+                    width: 100%;
+
                     img{
                         width: 600px;
-                    }
-                }
-            }
-  
-            &__form{
-               display: none;
-            }
-        }
-    }
-
-    .appartement{
-        .appartement__content{
-            flex-direction: column;
-
-            &__details{
-                width: 100%;
-
-            }
-
-            &__form{
-                width: 400px;
-            }
-        }
-    }
-
-    .about{
-        &__title{
-            @include title();
-        }
-    
-        &__content{
-            @include flex;
-            flex-direction: column;
-    
-                &__image{
-                    @include image();
-                    width: 500px;
-                    height: 300px;
-                }
-        
-                &__text{
-                    flex: 1;
-    
-                    .paragraph{
-                        width: 500px;
-                        font-size: 1.5em;
-                        margin:  20px auto;
-                        text-align: justify;
-                    }
-                 }
-        }
-    }
-}
-
-/*responsive for 576px*/
-@media screen and (min-width: 576px) and (max-width: 767px){
-    .top{
-        padding-top: 130px;
-        text-align: center;
-        height: 450px;
-        width: 100%;
-
-        h1{
-            width: 100%;
-            font-size: 1.8em;
-            margin: auto;
-
-            span{
-                font-size: 2em;
-            }
-        }
-
-        &__research-form{
-            width: 100%;
-
-            label{
-                width: 90px;
-                input{
-                    width: 90px;
-                }
-                button{
-                    display: none;
-                }
-
-                select{
-                    width: 90px;
-                }
-
-                i{
-                    padding-top: 15px;
-                    display: block;
-                    font-size: 1.7em;
-                }
-            }
-        }
-    }
-
-    .about{
-        &__title{
-            @include title();
-        }
-    
-        &__content{
-            @include flex;
-            flex-direction: column;
-    
-                &__image{
-                    @include image();
-                    width: 450px;
-                    height: 300px;
-                }
-        
-                &__text{
-                    flex: 1;
-    
-                    .paragraph{
-                        width: 450px;
-                        font-size: 1.5em;
-                        margin:  20px auto;
-                        text-align: justify;
-                    }
-                 }
-        }
-    }
-
-    .gallery{
-        &__items{
-            img{
-                margin: 15px auto;
-                width: 250px;
-                height: 200px;
-            }
-        }
-    }
-
-    .about-section{
-        &__title{
-            width: 95%;
-            text-align: center;
-            font-size: 1.7em;
-        }
-
-        &__content{
-            width: 95%;
-            text-align: center;
-            flex-direction: column;
-
-            &__picture{
-                margin: 0px auto auto 20px;
-                .background{
-                    
-                    height: 350px;
-                    width: 300px;
-                    img{
-                        width: 350px;
-                        height: 250px;
-                        margin: auto auto 10px auto ;
-                    }
-                }
-            }
-
-            &__details{
-                img{
-                    width: 60px;
-                    height: 60px;
-                    margin: 20px auto;
-                }
-
-                .title{
-                    font-size: 1.8em;
-                    margin: -20px auto;
-                }
-
-                .text{
-                    width: 90%;
-                    line-height: 1.5em;
-                    margin: 30px auto;
-                }
-
-                .link{
-                    margin: 0 auto;
-                }
-            }
-
-        }
-    }
-
-    .reasons-section{
-        &__title{
-            width: 95%;
-            text-align: center;
-            font-size: 1.7em;
-        }
-
-        &__content{
-            width: 95%;
-            margin: 20px auto 20px auto;
-            text-align: center;
-            flex-direction: column;
-
-            &__picture{
-                margin: 20px 40px auto auto;
-                .background{
-                    
-                    height: 350px;
-                    width: 300px;
-                    img{
-                        width: 350px;
-                        height: 250px;
-                        margin: auto auto 10px auto ;
-                    }
-                }
-            }
-
-            &__details{
-                img{
-                    width: 60px;
-                    height: 60px;
-                    margin: 20px auto;
-                }
-
-                .title{
-                    font-size: 1.8em;
-                    margin: -20px auto;
-                }
-
-                .text{
-                    width: 90%;
-                    line-height: 1.5em;
-                    margin: 30px auto;
-                }
-
-                .link{
-                    margin: 0 auto;
-                }
-            }
-
-        }
-    }
-
-    .appartements{
-        &__title{
-            font-size: 1.8em;
-        }
-        &__content{
-            width: 100%;
-
-            &__details{
-                .item{
-                  width: 500px;
-                    img{
-                        width: 400px;
-                        height: 300px;
-                    }
-
-                    .appartement_name{
-                        font-size: 1.4em;
-                    }
-
-                }
-            }
-  
-            &__form{
-            }
-        }
-    }
-
-    .appartement{
-        .appartement__content{
-            flex-direction: column;
-
-            &__details{
-                width: 100%;
-
-            }
-
-            &__form{
-                width: 400px;
-            }
-        }
-    }
-
-    .dashboard{
-        &__menu{
-            display: none;
-        }
-
-        &__main{
-            padding-top:0;
-
-            &__heading{
-                margin-top: -30px;
-            }
-
-            &__background{
-                height: 600px;
-
-                .boxes{
-                    flex-direction: column;
-
-                    &__item{
-                        height: 150px;
-                        width: 200px;
-                        margin: 15px auto;
-                        padding-top: 20px;
-                        
-                        span{
-                        font-size: 2em;
-                    }
-                    }
-                }
-            }
-        }
-    }
-
-    .contact{
-        .form{
-            width: 80%;
-        }
-    }
-
-    .add{
-        &__form{
-            width: 80%;
-        }
-
-        &__content{
-            .right{
-                background-color: red;
-                display: none;
-
-                .details-images{
-                    flex-direction: column;
-                }
-            }
-        }
-    }
-
-   
-}
-
-/*responsive for 350px*/
-@media screen and (min-width: 350px) and (max-width: 575px) {
-    .top{
-        padding-top: 120px;
-        text-align: center;
-        height: 650px;
-
-        h1{
-            width: 100%;
-            font-size: 1.6em;
-            margin: auto;
-
-            span{
-                font-size: 1.9em;
-            }
-        }
-
-        &__research-form{
-            width: 100%;
-            flex-direction: column;
-            margin: 40px auto;
-
-            label{
-                width: 180px;
-                margin: 15px auto;
-                input{
-                    width: 180px;
-                    margin: auto;
-                }
-                button{
-                    display: none;
-                }
-
-                select{
-                    width: 150px;
-                }
-
-                i{
-                    margin: -40px auto;
-                    padding-top: 15px;
-                    display: block;
-                    font-size: 1.7em;
-                }
-            }
-        }
-    }
-
-    .about{
-        width: 100%;
-        @include flex();
-        padding-top: 100px;
-        text-align: center;
-        display: block;
-    
-        &__title{
-            @include title();
-        }
-    
-        &__content{
-            @include flex;
-            flex-direction: column;
-            width: 340px;
-            margin: 20px auto;
-    
-                &__image{
-                    @include image();
-                    width: 330px;
-                    height: 250px;
-                    margin: 40px auto;
-
-                }
-        
-            &__text{
-                flex: 1;
-    
-                .paragraph{
-                    width: 330px;
-                    font-size: 1.5em;
-                    margin:  20px auto;
-                    text-align: justify;
-                }
-            }
-       }
-    }
-
-    .about-section{
-        &__title{
-            width: 95%;
-            text-align: center;
-            font-size: 1.6em;
-        }
-
-        &__content{
-            width: 95%;
-            text-align: center;
-            flex-direction: column;
-
-            &__picture{
-                margin: 0px auto auto 0px;
-                .background{
-                    height: 270px;
-                    width: 250px;
-                    img{
-                        width: 250px;
-                        height: 200px;
-                        top: 40px;
-                    }
-                }
-            }
-
-            &__details{
-                img{
-                    width: 60px;
-                    height: 60px;
-                    margin: 20px auto;
-                }
-
-                .title{
-                    font-size: 1.8em;
-                    margin: -20px auto;
-                }
-
-                .text{
-                    width: 90%;
-                    line-height: 1.5em;
-                    margin: 30px auto;
-                }
-
-                .link{
-                    margin: 0 auto;
-                }
-            }
-
-        }
-    }
-
-    .dashboard{
-        &__menu{
-            display: none;
-        }
-
-        &__main{
-            margin-top: 20px;
-            width: 90%;
-
-            &__heading{
-                margin-top: -30px;
-                padding-left: 10px;
-
-                .dashboard-title{
-                    width: 90%;
-                    h1{
-                        font-size: 1.7em;
+                        height: 320px;
                         margin: auto;
-
                     }
-                }
-            }
-
-            &__background{
-                height: 600px;
-
-                .boxes{
-                    flex-direction: column;
-
-                    &__item{
-                        height: 150px;
-                        width: 200px;
-                        margin: 15px auto;
-                        padding-top: 20px;
-                        
-                        span{
-                        font-size: 2em;
-                    }
-                    }
-                }
-            }
-        }
-    }
-
-    .reasons-section{
-        .title{
-            width: 90%;
-            text-align: center;
-            font-size: 1.8em;
-        }
-
-        &__content{
-            width: 95%;
-            margin: 20px auto 20px auto;
-            text-align: center;
-            flex-direction: column;
-
-            &__picture{
-                margin: 20px 20px auto auto;
-                .background{
                     
-                    height: 250px;
-                    width: 250px;
-                    img{
-                        top: 30px;
-                        width: 270px;
-                        height: 200px;
-                        margin: auto auto 10px auto ;
-                    }
-                }
-            }
-
-            &__details{
-                img{
-                    width: 60px;
-                    height: 60px;
-                    margin: 20px auto;
-                }
-
-                .title{
-                    font-size: 1.8em;
-                    margin: -20px auto;
-                }
-
-                .text{
-                    width: 90%;
-                    line-height: 1.5em;
-                    margin: 30px auto;
-                }
-
-                .link{
-                    margin: 0 auto;
-                }
-            }
-
-        }
-    }
-
-    .appartements{
-        &__title{
-            font-size: 1.5em;
-        }
-        &__content{
-            width: 100%;
-            &__details{
-                .item{
-                  width: 340px;
-                    img{
-                        width: 330px;
-                        height: 200px;
-                    }
-
-                    .appartment_name{
-                        font-size: 1.5em;
-                        width: 95%;
-                    }
-
-                    .daily_price{
-                        margin: -20px auto;
-                        width: 95%;
+                    .appartment__name{
+                        margin: auto;
+                        text-align: left;
                     }
 
                     .extract{
-                        width: 95%;
-                        margin: 30px auto;
+                        margin: auto 0;
+                        text-align: left;
                     }
-
-                    .buttons{
-                        flex-direction: column;
-
-                        .book{
-                            width: 250px;
-                            margin: auto 10px auto 0;
-                        }
-
-                        .details{
-                            margin: 10px auto auto 0;
-                        }
-                    }
-
                 }
             }
-  
             &__form{
-               width: 330px;
-               padding-top: 0;
-            }
-        }
-    }
-
-    .appartement{
-        .appartement__content{
-            flex-direction: column;
-
-            &__details{
-                width: 100%;
-
-            }
-
-            &__form{
+                margin: 30px auto;
                 width: 300px;
-            }
-        }
-    }
-
-    .contact{
-        .form{
-            width: 90%;
-
-        }
-    }
-
-    .add{
-        &__form{
-            width: 95%;
-            text-align: center;
-            margin: 20px auto;
-
-            &__title{
-                font-size: 1.5em;
-            }
-
-            &__content{
-                width: 100%;
-                text-align: center;
-                margin: auto;
-
-                .right{
-                    text-align: center;
-                    margin: auto;
-                    width: 90%;
-
-                    .details-images{
-                        width: 100%;
-                        flex-wrap: wrap;
-                        flex-direction: row;
-                        margin: auto;
-                        text-align: center;
-
-                        label{
-                            margin: 10px;
-
-                            input{
-                                width: 90px;
-                            }
-                        }
-                    }
-
-                    .details{
-                        flex-direction: column;
-                    }
-                }
-
-                .left{
-                    text-align: center;
-                    margin: auto;
-                    width: 90%;
-                    
-                    .details{
-                        flex-direction: column;
-                    }
-                }
-            }
-        }
-    }
-
-    .reservation{
-        &__form{
-            width: 330px;
-
-            a{
-                float: right;
-                color: $blue;
-                margin: auto 15px auto auto;
+                position: relative;
+                
             }
         }
     }
@@ -2912,12 +1962,264 @@ html, body{
         &__bottom{
             height: auto;
             flex-direction: column;
-            &__infos{
+            text-align: left;
+            width: 100%;
+            height: 600px;
+            display: block;
 
+            &__infos{
+                flex: 1;
+                width: 50%;
+                text-align: left;
+                height: 200px;
+                margin: auto;
+            }
+
+            &__menu{
+                flex: 1;
+                height: 200px;
+                width: 50%;
+                margin: auto;
+                text-align: left;
+
+                ul{
+                    li{
+                        color: $blue;
+                        display: block;
+                    }
+                }
             }
         }
     }
+ }
+
+
+ /*responsive for 350px*/
+ @media screen and (min-width:350px)and (max-width: 767px) {
+    h2{
+        font-size: 2.1em;
+        width: 90%;
+        margin: -50px auto;
+    }
+
+    h3{
+        
+    }
+    
+    .top{
+       padding-top: 150px;
+       height: 750px;
+
+       h1{
+           font-size: 1.8em;
+           width: 90%;
+
+           span{
+               font-size: 1.6em;
+           }
+       }
+
+       &__research-form{
+           margin: 40px auto;
+
+           &__label{
+               margin: 10px auto;
+               button{
+                   width: 180px;
+               }
+
+               input{
+                   margin: 5px auto;
+               }
+
+               .look-icon{
+                   border: 1px solid $black;
+                   width: 100px;
+                   text-align: center;
+                   padding-top: 10px;
+                   margin: auto;
+                   border-radius: 10px;
+                   height: 40px;
+                   background-color: $yellow;
+                   font-size: 1.5em;
+               }
+           }
+           
+       }
+   }
+
+   .about-section{
+       width: 100%;
+       text-align: center;
+       margin: 40px auto;
+
+       &__title{
+           width: 90%;
+           margin: auto;
+       }
+
+       &__content{
+           width: 90%;
+           margin: 40px auto;
+           text-align: center;
+           &__picture{
+               .background{
+                   width: 280px;
+                   height: 280px;
+
+                   img{
+                       width: 290px;
+                       height: 230px;
+                       top: 30px;
+                   }
+
+                   .text{
+                       margin: auto;
+                   }
+               }
+           }
+
+           &__details{
+            margin: 30px auto;
+
+            img{
+                width: 50px;
+                margin: auto;
+            }
+
+            .title{
+                width: 100%;
+                margin: auto;
+            }
+
+            .text{
+                margin: auto;
+            }
+
+            .link{
+                margin: 5px auto;
+            }
+
+           }
+
+
+       }
+   }
+
+   .reasons-section{
+       width: 100%;
+       text-align: center;
+       margin: 5px auto;
+
+       &__content{
+           text-align: center;
+           width: 100%;
+
+           &__picture{
+               text-align: center;
+                width: 90%;
+                margin: 30px auto;
+                    .background{
+                        width: 300px;
+                        height: 280px;
+                        margin: auto 20px auto auto;
+            
+                        img{
+                            width: 290px;
+                            height: 230px;
+                            top: 30px;
+                            margin: auto;
+                        }
+
+                        .title{
+                            margin: auto;
+                        }
+                    }
+            }
+
+           &__details{
+                width: 90%;
+                margin: auto;
+
+                img{
+                    width: 50px;
+                    margin: auto;
+                }
+
+                .title{
+                    margin: -10px auto;
+                    width: 90%;
+                }
+
+                .text{
+                    margin: 10px auto;
+                    width: 90%;
+                }
+
+                .link{
+                    margin: 10px  auto;
+                }
+            } 
+        }
+   }
+
+   .appartments{
+
+    &__content{
+        flex-direction: column;
+        width: 100%;
+
+        &__details{
+            width: 100%;
+            text-align: left;
+            margin: auto;
+           
+
+            .item{
+                margin: 30px auto;
+                width: 100%;
+
+                img{
+                    width: 330px;
+                    height: 220px;
+                    margin: auto;
+                }
+                
+                .appartment__name{
+                    margin: auto;
+                    text-align: left;
+                }
+
+                .daily_price{
+                    span{
+                        font-size: 1.4em;
+                    }
+                }
+
+                .extract{
+                    margin: auto 0;
+                    text-align: left;
+                }
+
+                .buttons{
+                    flex-direction: column;
+                    text-align: left;
+
+                    .book, .details{
+                        margin: 10px auto auto 5px ;
+                    }
+
+                }
+            }
+        }
+        &__form{
+            margin: 30px auto;
+            width: 300px;
+            position: relative;
+            
+        }
+    }
 }
-  
+ }
 
  

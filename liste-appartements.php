@@ -1,7 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -13,279 +12,299 @@
 
 </head>
 
-<body>      
+<body>
 
-<?php include 'header2.php'; ?>
- 
-<div id='app'><br> <br><br> <br>
+    <?php include 'header2.php'; ?>
 
-<div class="booking" v-if="showBook=true">
-                    <form action="model.php?action=bookAppartment" class=""
-                                method="POST">
-
-                                <div class="back" @click="showBook=false">
-                                   <p>
-                                    X
-                                   </p>
-                                </div>
-
-                                <h1 class="title">
-                                    Réserver un appartement
-                                </h1>  <br>
-
-                                  
+    <div id='app'><br>
 
 
-                                <div class="row">
-                                    <div class="col">
-                                    <input type="text" class="form-control"
-                                       placeholder="Nom complet"  name="name">
-                                    </div>
-                                
-                                </div> <br>
+        <div class='booking' v-if='showBooking' v-for='detail in details' key='detail.id'>
+            <form action='model.php?action=bookAppartment&id={{detail.id}}' class='' method='POST'> <br> <br>
 
-                                <div class="row">
-                                        <div class="col-6">Date d'arrivée:  
-                                        <input type="date" class="form-control" name="date_of_arrival" 
-                                        placeholder="Date départ" >
-                                        </div>
+                <div class='back' @click='showBooking=false; showAllFreeAppartments=true'>
+                    <p>
+                        X {{ message }}
+                    </p>
+                </div>
 
-                                        <div class="col-6">Date de départ
-                                        <input type="date" class="form-control" name="date_of_departure" 
-                                        placeholder="Date arrivée" >
-                                        </div>
-                                </div> <br>
+                <h1 class='title'>
+                    Réserver {{ detail.name}}
+                </h1> <br>
 
-                                <div class="row">
-                                        <div class="col-6">
-                                        <input type="text" class="form-control" name="date_of_arrival" 
-                                        placeholder="Ville" >
-                                        </div>
 
-                                        <div class="col-6">
-                                        <input type="text" class="form-control" name="date_of_departure" 
-                                        placeholder="Pays" >
-                                        </div>
-                                </div> <br>
+                <div class='row'>
+                    <div class='col-6'>Prénoms
+                        <input type='text' class='form-control' name='first_name' placeholder='Prénoms' required>
+                    </div>
 
-                                <div class="row">
-                                        <div class="col">
-                                        <input type="text" class="form-control" name="" 
-                                        placeholder="Numéro de téléphone" >
-                                        </div>
-                                </div> <br>
+                    <div class='col-6'>Nom
+                        <input type='text' class='form-control' name='last_name' placeholder='Nom' required>
+                    </div>
 
-                                <div class="row">
-                                        <div class="col">
-                                        <input type="text" class="form-control" name="date_of_arrival" 
-                                        placeholder="Email" >
-                                        </div>
-                                </div> <br>
+                </div> <br>
 
-                               
+                <div class='row'>
+                    <div class='col-6'>Date d'arrivée:
+                        <input type='date' class='form-control' v-model='date_of_arrival' name='date_of_arrival'
+                            placeholder='Date départ' required>
+                    </div>
 
-                                <textarea class="form-control" placeholder="Description" placeholder="Note (facultatif)"
-                                        id="exampleFormControlTextarea1" name="short_description" rows="3">
-                                    </textarea>
-                                     <br>
+                    <div class='col-6'>Date de départ
+                        <input type='date' class='form-control' name='date_of_departure' v-model='date_of_departue'
+                            placeholder='Date de départ' required>
+                    </div>
+                </div> <br>
 
-                                    <button class="view"  v-on:click="bookAppartment(); showBook=false;">
-                                        Valider
-                                    </button>
-                    </form>
+                <div class='row'>
+                    <div class='col-6'>Nombre de voyageurs <br>
+                        <input type='number' class='form-control' name='travelers' placeholder='Nombre se voyageurs'
+                            required>
+                    </div>
+                </div> <br> <br>
+
+                <div class='row'>
+                    <div class='col-6'>
+                        <input type='text' class='form-control' v-model='city' name='city' placeholder='Ville' required>
+                    </div>
+
+                    <div class='col-6'>
+                        <input type='text' class='form-control' required name='country' placeholder='Pays'
+                            v-model='country'>
+                    </div>
+                </div> <br>
+
+                <div class='row'>
+                    <div class='col'>
+                        <input type='text' class='form-control' name='phone_number' placeholder='Numéro de téléphone'
+                            required>
+                    </div>
+                </div> <br>
+
+                <div class='row'>
+                    <div class='col'>
+                        <input type='text' class='form-control' v-model='email' name='email' placeholder='Email'
+                            required>
+                    </div>
+                </div> <br>
+
+
+
+                <textarea class='form-control' placeholder='Description' placeholder='Note (facultatif)'
+                    id='exampleFormControlTextarea1' name='description' rows='3' v-model='short_description'>
+                    </textarea>
+                <br>
+
+                <button class='view' type='submit' type='submit' @click='bookAppartment()'>
+                    Valider
+                </button>
+            </form>
         </div>
-
 
         <div class='appartment' v-if='showDetails'>
-                <div class='appartment__content'>
-                    <div class='appartment__content__details'>  
-                    <div class="back">
-                    Retour <br>
-                    </div>
-                        <img src='https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg'> 
-                        
-                                <h1 class='appartment_name'>
-                            {{ name }}   
-                                </h1> 
-                                <p class='daily_price'>
-                                                A partir de : <span> {{ price }}  FCFA HT </span>
-                                </p>
+            <div class='appartment__content'>
+                <div class='appartments__content__details'>
+                    <div class='item' v-for='detail in details' :key='detail.id'>
+                        <img :src='getImgUrl(detail.picture_1)'>
+                        <h2 class='appartment_name'>
+                            {{ detail.name }}
+                        </h2> <br>
 
-                                            <p class='rooms'>
-                                                Nombre de chambres:  <span> {{ rooms }} </span>
-                                            </p>
+                        <p class='daily_price'>
+                            A partir de : <span> {{ detail.price }} </span> FCFA HT
+                        </p>
 
-                                <p class='appartment_description'>
-                           {{ short_description }}
-                                </p>
+                        <p class='extract'>
+                            {{detail.short_description }}
+                        </p>
 
-                                <p class='appartment_description'>
-                            {{ long_description}}
-                                </p>
+                        <p class='rooms'>
+                            Nombre de chambres: <span> {{ detail.rooms }} </span>
+                        </p>
 
-                               
-                                
-
-                                <button class='book'>
-                                        Reserver
-                                </button>
-                    </div> 
-
-                        <form action='' class='appartments__content__form'>
-                                            <label class='form_label'>
-                                                Date d'arrivée: <br>
-                                                <input type='date' placeholder='Arrivée' name='arrival_date'>
-                                            </label> <br><br>
-
-                                            <label class='form_label'>
-                                                Date de départ: <br>
-                                                <input type='date' placeholder='Départ*' name='departure_date'>
-                                            </label> <br> <br>
-
-                                            <label class='form_label'>
-                                                Nombre de voyageurs: <br>
-                                                <select  name='number_of_people' id=''>
-                                                        <option value=''>Sélectionner</option>
-                                                        <option value='1'>1</option>
-                                                        <option value='2'>2</option>
-                                                        <option value='3'>3</option>
-                                                        <option value='4'>4</option>
-                                                </select>
-                                            </label> <br> <br>
-
-                                                <button type='submit' class='form_submit'>
-                                                    Rechercher <i></i>
-                                                </button>
-                        </form>
-                </div>
-
-                <div class="appartment__gallery">
-                    <div class="appartement__gallery__top">
-                            <img src="https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg" alt="" class="">
-                            <img src="https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg" alt="" class="">
-                    </div>
-                        <div class="appartement__gallery__bottom">
-                            <img src="https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg" alt="" class="images21">
-                            <img src="https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg" alt="" class="images211">
-                            <img src="https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg" alt="" class="images211">
+                        <div class='buttons'>
+                            <button class='book' @click='startBooking(detail.id)'>
+                                Réserver maintenant
+                            </button>
                         </div>
+                    </div>
                 </div>
-        </div>
-                    
-        <div class='appartments'>
-                        <h1 class='appartments__title'>
-                            NOS APPARTEMENTS
-                        </h1>
-                    
+                <form action='model.php?action=searchAppartment' method='POST' class='appartments__content__form'>
+                    <label class='form_label'>
+                        Date d'arrivée: <br>
+                        <input type='date' placeholder='Arrivée' name='arrival_date'>
+                    </label> <br><br>
 
-                        <div class='appartments__content'>
-                                <div class='appartments__content__details'>
-                                    <div class='item'  v-for='appartment in appartments' :key='appartment.id'>
-                                        <img v-bind:src='this.picture_1'>
-                                            <h2 class='appartment_name'>
-                                                {{ appartment.name }}
-                                            </h2> <br>
+                    <label class='form_label'>
+                        Date de départ: <br>
+                        <input type='date' placeholder='Départ*' name='departure_date'>
+                    </label> <br> <br>
 
-                                            <p class='daily_price'>
-                                                A partir de : <span> {{ appartment.price }} </span> FCFA HT
-                                            </p>
+                    <label class='form_label'>
+                        Nombre de voyageurs: <br>
+                        <select name='number_of_people' id=''>
+                            <option value=''>Sélectionner</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                    </label> <br> <br>
 
-                                            <p class='extract'>
-                                            {{ appartment.short_description }}
-                                            </p> 
+                    <button type='submit' class='form_submit'>
+                        Rechercher <i></i>
+                    </button>
+                </form>
+            </div>
 
-                                            <p class='rooms'>
-                                                Nombre de chambres:  <span>  {{ appartment.rooms }} </span>
-                                            </p>
+        </div><br>
 
-                                            <div class='buttons'>
-                                                <button class='book' @click='showBook=true' >
-                                                    Réserver maintenant
-                                                </button>
+        <div class='appartments' v-if='showAllFreeAppartments'>
+            <h1 class='appartments__title'>
+                APPARTEMENTS DISPONIBLES
+            </h1>
 
-                                                <button class='details' @click='showDetails=true'>
-                                                Voir les détails
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <form action='' class='appartments__content__form'>
-                                            <label class='form_label'>
-                                                Date d'arrivée: <br>
-                                                <input type='date' placeholder='Arrivée' name='arrival_date'>
-                                            </label> <br><br>
 
-                                            <label class='form_label'>
-                                                Date de départ: <br>
-                                                <input type='date' placeholder='Départ*' name='departure_date'>
-                                            </label> <br> <br>
+            <div class='appartments__content'>
+                <div class='appartments__content__details'>
+                    <div class='item' v-for='appartment in allFreeAppartments' :key='appartment.id'>
+                        <img :src='getImgUrl(appartment.picture_1)'>
+                        <h2 class='appartment_name'>
+                            {{ appartment.name }}
+                        </h2> <br>
 
-                                            <label class='form_label'>
-                                                Nombre de voyageurs: <br>
-                                                <select  name='number_of_people' id=''>
-                                                        <option value=''>Sélectionner</option>
-                                                        <option value='1'>1</option>
-                                                        <option value='2'>2</option>
-                                                        <option value='3'>3</option>
-                                                        <option value='4'>4</option>
-                                                </select>
-                                            </label> <br> <br>
+                        <p class='daily_price'>
+                            A partir de : <span> {{ appartment.price }} </span> FCFA HT
+                        </p>
 
-                                                <button type='submit' class='form_submit'>
-                                                    Rechercher <i></i>
-                                                </button>
-                                    </form>
-                                </div>
+                        <p class='extract'>
+                            {{ appartment.short_description }}
+                        </p>
+
+                        <p class='rooms'>
+                            Nombre de chambres: <span> {{ appartment.rooms }} </span>
+                        </p>
+
+                        <div class='buttons'>
+                            <button class='book' @click='startBooking(appartment.id)'>
+                                Réserver maintenant
+                            </button>
+
+                            <button class='details' @click='getAppartment(appartment.id)'>
+                                Voir les détails
+                            </button>
                         </div>
+                    </div>
+                </div>
+                <form action='model.php?action=searchAppartment' method='POST' class='appartments__content__form'>
+                    <label class='form_label'>
+                        Date d'arrivée: <br>
+                        <input type='date' placeholder='Arrivée' name='arrival_date'>
+                    </label> <br><br>
+
+                    <label class='form_label'>
+                        Date de départ: <br>
+                        <input type='date' placeholder='Départ*' name='departure_date'>
+                    </label> <br> <br>
+
+                    <label class='form_label'>
+                        Nombre de voyageurs: <br>
+                        <select name='number_of_people' id=''>
+                            <option value=''>Sélectionner</option>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
+                    </label> <br> <br>
+
+                    <button type='submit' class='form_submit'>
+                        Rechercher <i></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 
+    <script>
+    const {
+        createApp
+    } = Vue
 
-
-<script>
-     const { createApp } = Vue
-
-createApp({
-  data() {
-    return {
-        appartments:[/*
-             { id: '1', name: 'appartement 1', price: '50 000', short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elitm  Lorem ipsum dolor sit amet consectetur adipisicing elitm ', rooms: '2', picture_1: 'https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg'},
-      { id: '2', name: 'appartement 2', price: '70 000', short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elitm  Lorem ipsum dolor sit amet consectetur adipisicing elitm ', rooms: '3'},
-      { id: '3', name: 'appartement 3', price: '35 000', short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elitm  Lorem ipsum dolor sit amet consectetur adipisicing elitm ', rooms: '1'},
-      { id: '4', name: 'appartement 4', price: '50 000', short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elitm  Lorem ipsum dolor sit amet consectetur adipisicing elitm ', rooms: '2'},
-      { id: '5', name: 'appartement 5', price: '40 000', short_description: 'Lorem ipsum dolor sit amet consectetur adipisicing elitm  Lorem ipsum dolor sit amet consectetur adipisicing elitm ', rooms: '2'}
-        */  ],
-          picture_1: 'https://www.xwegbe.com/wp-content/uploads/2022/05/appartement1-1.jpg',
-      errorMsg: '',
-          allData: '',
-          showBook: true,
-          showDetails: true,
-          name: 'kgvfyigvasya',
-          short_description: 'utftuitftffdodyfgyd Lorem ipsum dolo r, sit amet consectetur adipisicing elit  Voluptate hic autem sequi rem neque consequuntur deleniti re ',
-          long_description: 'Lorem ipsum dolo r, sit amet consectetur adipisicing elit  Voluptate hic autem sequi  Lorem ipsum dolo r, sit amet consectetur adipisicing elit  Voluptate hic autem sequi rem neque consequuntur deleniti re  Lorem ipsum dolo r, sit amet consectetur adipisicing elit  Voluptate hic autem sequi rem neque consequuntur deleniti re rem neque consequuntur deleniti reru',
-        currentAppartment: { },
-        rooms: 2,
-        price: 15000,
-        newBooking: []
+    createApp({
+        data() {
+            return {
+                allFreeAppartments: [],
+                errorMsg: '',
+                allData: '',
+                showBooking: false,
+                showDetails: false,
+                showResults: false,
+                details: {},
+                showAllFreeAppartments: true,
+                query_date_of_arrival: '',
+                query_date_of_departure: '',
+                query_number_of_people: '',
+                short_description: '',
+                user_firstname: '',
+                user_lastname: '',
+                date_of_departue: '',
+                date_of_arrival: '',
+                amount: '',
+                status: '',
+                city: '',
+                country: '',
+                message: '',
+                email: ''
+            }
+        },
+        mounted: function() {
+            this.getAllFreeAppartments();
+        },
+        methods: {
+            getAllFreeAppartments() {
+                axios.get('model.php?action=getAllFreeAppartments').then(
+                    response => this.allFreeAppartments = response.data);
+                this.showAllFreeAppartments = true;
+                this.showBooking = false;
+                this.showResults = false;
+                this.showBooking = false;
+            },
+            getAppartment(appartment_id) {
+                axios.get('model.php?action=getAppartment&id=' + appartment_id).then(
+                    response => this.details = response.data);
+                this.showDetails = true;
+                this.showBooking = false;
+                this.showAllFreeAppartments = false;
+            },
+            bookAppartment(appartment_id) {
+                axios.post('model.php?action=bookAppartment').then(
+                    response => this.message = response.data);
+                this.showAllFreeAppartments = true;
+                this.showDetails = false;
+                this.showBooking = true;
+                this.showResults = false;
+            },
+            startBooking(appartment_id) {
+                axios.get('model.php?action=getAppartment&id=' + appartment_id).then(
+                    response => this.details = response.data);
+                axios.post('model.php?action=startBooking&id=' +
+                    appartment_id).then(
+                    response => this.message = response.data);
+                this.showDetails = false;
+                this.showBooking = true;
+                this.showAllFreeAppartments = false;
+            },
+            getImgUrl(pic) {
+                return "public/images/appartements/" + pic;
+            },
+            getDetailId(id) {
+                return id;
+            }
         }
-      },
-      mounted: function(){
-          this.getAllFreeAppartments();
-      //  this.fetchAllData();
-      },
-          methods: {
-            getAllFreeAppartments(){
-              axios.get('model.php?action=getAllFreeAppartments').then(
-                response => this.appartments = response.data);
-           },
-           selectAppartment(){
+    }).mount('#app')
+    </script>
 
-           }
-    }
-}).mount('#app')
-
-
-</script>
-    
 </body>
+
 </html>
