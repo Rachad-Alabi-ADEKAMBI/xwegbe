@@ -2,11 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="public/css/style.css">
+  <?php include 'meta.php'; ?>
 
     <title>Xwegbe - Appartements meublés au Bénin</title>
 </head>
@@ -41,7 +37,7 @@
             </label>
 
             <label for=""> <br>
-                <button type="submit" class="top__research-form__submit">
+                <button type="submit" class="top__research-form__submit" onclick='message()'>
                     Chercher <i></i>
                 </button>
             </label>
@@ -90,7 +86,7 @@
             <div class="slide">
                 <div class="slide__img">
                     <div class="like">
-                        ()
+                    <i class="fas fa-heart"></i>
                     </div>
 
                     <div class="price">
@@ -262,9 +258,6 @@
     </div>
 
     <div class="reasons-section">
-        <h2 class="reasons-section__title">
-            Xwegbe, 1er catalogue d'appartements meublés au Bénin
-        </h2>
 
         <div class="reasons-section__content">
             <div class="reasons-section__content__details">
@@ -275,18 +268,34 @@
                 </h3>
 
                 <p class="text">
-                    "Xwégbé" siginifie en langue fon "La maison", vous vous sentirez comme chez vous
-                    dans nos appartements. La sécurité et le confort sont deux maitre-mots chez nous.
+                    Dans nos appartements vous vous sentirez comme chez vous,
+                    entre autres equipements vous disposez de:
+                    <ul>
+                        <li>
+                        <i class="fas fa-check"></i> La machine a laver
+                        </li>
+                        <li>
+                        <i class="fas fa-check"></i> La climatisation
+                        </li>
+
+                        <li>
+                        <i class="fas fa-check"></i> Parking gratuit
+                        </li>
+
+                        <li>
+                        <i class="fas fa-check"></i> Wifi, eau et electricite
+                        </li>
+                    </ul>
                 </p>
 
                 <button class="link">
-                    <a href="#book">Réserver</a>
+                    <a href="liste-appartements.php">Réserver</a>
                 </button>
             </div>
 
             <div class="reasons-section__content__picture">
                 <div class="background">
-                    <img src="public/images/xwegbe.jpeg" alt="">
+                    <img src="public/images/a3-2.jpg" alt="">
                 </div>
             </div>
 
@@ -296,7 +305,13 @@
 
     <?php include 'footer.php'; ?>
 
-    <script src="public/js/script.js"></script>
+    <script>
+        function message(){
+            alert('Page en cours de maintenance, veuillez reessayer ulterieurement');
+        }
+    </script>
+
+
 </body>
 
 </html>

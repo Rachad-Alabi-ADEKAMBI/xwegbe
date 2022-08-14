@@ -1,5 +1,5 @@
-<?php 
-    require 'control.php'; 
+<?php
+    require 'control.php';
 
 ?>
 
@@ -27,11 +27,11 @@
                             <input type="text" class="appartement_name"
                                 name="appartement_name">
                         </label>
-                        
+
                         <label for="" >
                             Chambres: <br>
-                            <input type="number" name="rooms" 
-                                class="rooms"> 
+                            <input type="number" name="rooms"
+                                class="rooms">
                         </label>
 
                         <label for="" class="">
@@ -49,7 +49,7 @@
 
                     <label for="" class="add__form__label">
                         Description: <br>
-                        <input type="text-area" name="appartement_description" 
+                        <input type="text-area" name="appartement_description"
                             class="appartement__description">
                     </label> <br> <br>
 
@@ -68,34 +68,34 @@
                     <div class="add__form__pictures">
                         <label for="" class="form__pictures__label">
                             Photo 1: <br>
-                            <input type="file" name="picture_1" > 
+                            <input type="file" name="picture_1" >
                         </label>
 
                         <label for="" class="__label">
                             Photo 2: <br>
-                            <input type="file" name="picture_2" > 
+                            <input type="file" name="picture_2" >
                         </label>
 
                         <label for="" class="label">
                             Photo 3 <br>
-                            <input type="file" name="picture_3" > 
+                            <input type="file" name="picture_3" >
                         </label>
                     </div> <br>
 
                     <div class="add__form__pictures">
                         <label for="" class="">
                             Photo 4 <br>
-                            <input type="file" name="picture_4" > 
+                            <input type="file" name="picture_4" >
                         </label>
 
                         <label for="" class="">
                             Photo 5: <br>
-                            <input type="file" name="picture_5" > 
+                            <input type="file" name="picture_5" >
                         </label>
 
                         <label for="" class="">
                             Photo 6: <br>
-                            <input type="file" name="picture_6" > 
+                            <input type="file" name="picture_6" >
                         </label>
                     </div> <br>
 

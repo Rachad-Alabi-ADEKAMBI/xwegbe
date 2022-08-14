@@ -2,13 +2,9 @@
 <html lang='en'>
 
 <head>
-    <meta charset='UTF-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Appartements</title>
-    <link rel='stylesheet' href='style.css'>
-    <script src='https://unpkg.com/vue@3'></script>
-    <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+
+    <?php include 'meta.php'; ?>
 
 </head>
 
@@ -101,63 +97,202 @@
             </form>
         </div>
 
-        <div class='appartment' v-if='showDetails'>
-            <div class='appartment__content'>
-                <div class='appartments__content__details'>
-                    <div class='item' v-for='detail in details' :key='detail.id'>
-                        <img :src='getImgUrl(detail.picture_1)'>
-                        <h2 class='appartment_name'>
-                            {{ detail.name }}
-                        </h2> <br>
+        <div class="appartment" v-if='showDetails'>
+            <div class="appartment__top">
+                <div class="appartment__top__left">
+                    <div class="retour">
+                        Retour
+                    </div>
 
-                        <p class='daily_price'>
-                            A partir de : <span> {{ detail.price }} </span> FCFA HT
+                    <h1 class="title">
+                        appartement 1
+                    </h1> <br>
+
+                    <div class="short__descr">
+                        Lorem
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Temporibus ad quisquam eveniet maiores tempora alias, accusantium mollitia optio quam.
+                        blanditiis culpa debitis voluptate, doloremque suscipit ipsum sapiente voluptatibus,
+                        quasi aut? <br><br>
+
+                        <h2>
+                            Le logement
+                        </h2>
+
+                        <p>
+                            Le logement se compose comme suit:
+
+                            <ul>
+                                <li>
+                                    Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Neque,  </li>
+
+                                 <li>
+                                    Lorem, ipsum dolor sit amet consectetur
+                                     adipisicing elit. Neque, ipsam vero
+                                      provident sit sequi tempore</li>
+
+                                <li>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsam vero provident sit sequi tempore ea
+                                    consectetur,
+                                </li>
+                            </ul>
                         </p>
 
-                        <p class='extract'>
-                            {{detail.short_description }}
+                        <h2>
+                            Points importants de la location de cet appartement
+                        </h2>
+
+                        <p>
+                            <ul>
+                                <li>
+                                    Lorem, ipsum dolor sit amet
+                                    consectetur adipisicing elit. Neque, </li>
+
+                                    <li>
+                                        Lorem, ipsum dolor sit amet
+                                        consectetur adipisicing elit. Neque, </li>
+
+                                        <li>
+                                            Lorem, ipsum dolor sit amet
+                                            consectetur adipisicing elit. Neque, </li>
+
+                            </ul>
                         </p>
 
-                        <p class='rooms'>
-                            Nombre de chambres: <span> {{ detail.rooms }} </span>
+                        <p>
+                           <span>Accès des voyageurs:</span> <br>
+                            Vous aurez accès à toutes les chambres de l'appartement
                         </p>
 
-                        <div class='buttons'>
-                            <button class='book' @click='startBooking(detail.id)'>
-                                Réserver maintenant
-                            </button>
-                        </div>
+                        <h2>
+                            Equipements:
+                        </h2>
                     </div>
                 </div>
-                <form action='model.php?action=searchAppartment' method='POST' class='appartments__content__form'>
-                    <label class='form_label'>
-                        Date d'arrivée: <br>
-                        <input type='date' placeholder='Arrivée' name='arrival_date'>
-                    </label> <br><br>
 
-                    <label class='form_label'>
-                        Date de départ: <br>
-                        <input type='date' placeholder='Départ*' name='departure_date'>
-                    </label> <br> <br>
+                <div class="appartment__top__right">
+                    <form action="" class="form" method="POST">
+                        <p>
+                            Appartement <span>disponible</span>
+                        </p>
 
-                    <label class='form_label'>
-                        Nombre de voyageurs: <br>
-                        <select name='number_of_people' id=''>
-                            <option value=''>Sélectionner</option>
-                            <option value='1'>1</option>
-                            <option value='2'>2</option>
-                            <option value='3'>3</option>
-                            <option value='4'>4</option>
-                        </select>
-                    </label> <br> <br>
+                        <p>
+                            Prix: à partir de <strong>25 000 FCFA</strong> / nuit
+                        </p>
 
-                    <button type='submit' class='form_submit'>
-                        Rechercher <i></i>
-                    </button>
-                </form>
+                        <p>
+                            Chambres: <span>3</span>
+                        </p>
+
+                        <strong>
+                            Les champs obligatoires sont préçédés de *
+                        </strong>
+
+                        <label for="">
+                            <input type="date" placeholder="Arrivée*">
+                            <i></i>
+                        </label>
+
+                        <label for="">
+                            <input type="date" placeholder="Départ*">
+                            <i></i>
+                        </label>
+
+                        <label for="">
+                            <input type="number" placeholder='Adultes'>
+                        </label>
+
+                        <label for="">
+                            <input type="text" placeholder='Enfants'>
+                        </label> <br>
+
+                        <label for="" class="submit">
+                            <button @click="startBooking()">
+                                Réserver
+                            </button>
+                        </label>
+
+                    </form>
+                </div>
             </div>
 
-        </div><br>
+            <div class="items">
+
+                    <div class="item__left">
+                        <div class="item">
+                            <img src="public/images/icons/air-conditioning.svg" alt="">
+                            Cimatisastion
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/door.svg" alt="">
+                            Entrée privée
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/iron.svg" alt="">
+                            Fer à repasser
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/microwave-oven.svg" alt="">
+                            Four à micro-ondes
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/parking.svg" alt="">
+                            Parking gratuit
+                        </div>
+                    </div>
+
+                    <div class="item__right">
+                        <div class="item">
+                            <img src="public/images/icons/fridge.svg" alt="">
+                            Réfrigirateur
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/hair-dryer.svg" alt="">
+                            Sèches-cheveux
+                        </div>
+                        <div class="item">
+                            <img src="public/images/icons/smart-tv.svg" alt="">
+                            Télévision
+                        </div>
+
+                        <div class="item">
+                            <img src="public/images/icons/parking.svg" alt="">
+                            Vaiselles et couverts
+                        </div>
+
+                        <div class="item">
+                            <img src="public/images/icons/wi-fi-zone.svg" alt="">
+                            Wifi
+                        </div>
+                    </div>
+            </div>
+
+            <div class="gallery">
+                    <div class="gallery__top">
+                        <a href="public/images/image2.jpg">
+                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        </a>
+
+                        <a href="public/images/image2.jpg">
+                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        </a>
+                            <a href="public/images/image2.jpg">
+                                <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                            </a>
+                    </div>
+
+                    <div class="gallery__bottom">
+                        <a href="public/images/image2.jpg">
+                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        </a>
+
+                        <a href="public/images/image2.jpg">
+                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        </a>
+                    </div>
+            </div>
+        </div>
 
         <div class='appartments' v-if='showAllFreeAppartments'>
             <h1 class='appartments__title'>
@@ -187,11 +322,11 @@
 
                         <div class='buttons'>
                             <button class='book' @click='startBooking(appartment.id)'>
-                                Réserver maintenant
+                                Réserver
                             </button>
 
                             <button class='details' @click='getAppartment(appartment.id)'>
-                                Voir les détails
+                                Détails
                             </button>
                         </div>
                     </div>
@@ -225,6 +360,8 @@
             </div>
         </div>
     </div>
+
+    <?php include 'footer.php'; ?>
 
     <script>
     const {
@@ -296,7 +433,7 @@
                 this.showAllFreeAppartments = false;
             },
             getImgUrl(pic) {
-                return "public/images/appartements/" + pic;
+                return "public/images/" + pic;
             },
             getDetailId(id) {
                 return id;
@@ -304,6 +441,7 @@
         }
     }).mount('#app')
     </script>
+
 
 </body>
 

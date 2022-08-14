@@ -1,11 +1,5 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-  }
- 
+
+
   nav{
     height: 80px;
     width: 100%;
@@ -57,7 +51,7 @@
 
   .login-link:hover{
     color: #D1AF52;
-    background-color: #222563;  
+    background-color: #222563;
   }
   a.active,a:hover{
     transition: .5s;
@@ -83,7 +77,7 @@
       font-size: 16px;
     }
   }
-  @media (max-width: 858px){
+  @media (max-width: 1280px){
     .checkbtn{
       display: block;
     }
@@ -94,14 +88,14 @@
 
     nav{
         position: fixed;
-        background-color:  #222563; 
+        background-color:  #222563;
     }
 
     nav{
       position: fixed;
       z-index: 9999;
     }
-    
+
     nav label img{
       top: 5px;
       left: 5px;

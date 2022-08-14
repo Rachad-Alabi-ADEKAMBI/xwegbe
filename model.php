@@ -3,7 +3,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: X-Requested-With,Origin,Content-Type,Cookie,Accept');
- 
+
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header('HTTP/1.1 204 No Content');
     die;
@@ -27,22 +27,24 @@ catch(Exception $e)
 
 }
 */
+
+//local
 function dbConnect(){
         try
-       
+
            {
-           
+
            $pdo = new PDO('mysql:host=localhost;dbname=xwegbe;charset=utf8', 'root', '');
            return $pdo;
-           
+
            }
-           
+
            catch(Exception $e)
-           
+
            {
-           
+
                die('Erreur : '.$e->getMessage());
-           
+
            }
 }
 
@@ -51,9 +53,9 @@ function verifyInput($inputContent){
         $inputContent = htmlspecialchars(
             $inputContent
         );
-    
+
         $inputContent = trim($inputContent);
-    
+
         return $inputContent;
     }
 
@@ -71,7 +73,8 @@ if(isset($_GET['action'])){
 
 if($action == 'getAllFreeAppartments'){
         $pdo = dbConnect();
-        $sql = $pdo->prepare("SELECT * FROM appartments WHERE status = ?");
+        $sql = $pdo->prepare("SELECT * FROM wpbr_appartments
+         WHERE status = ?");
         $status = 'libre';
         $sql->execute(array($status));
         $appartments = array();
@@ -105,7 +108,7 @@ if($action == 'bookAppartment'){
         $data = $sql->fetch();
         $price = $data['price'];
         $appartment_name = $data['name'];
-        
+
         $first_name = verifyInput($_POST['first_name']);
         $last_name = verifyInput($_POST['last_name']);
         $date_of_arrival = verifyInput($_POST['date_of_arrival']);
@@ -120,19 +123,19 @@ if($action == 'bookAppartment'){
         $status = 'Confirmé';
 
         //insertion
-        $req = $pdo->prepare("INSERT INTO bookings SET date_of_insertion = NOW(), 
+        $req = $pdo->prepare("INSERT INTO bookings SET date_of_insertion = NOW(),
         appartment_id = ?, appartment_name = ?, user_email = ?, user_firstname = ?,
         user_lastname = ?, user_city = ?, user_country = ?, user_phone_number = ?,
-        date_of_arrival = ?, date_of_departure = ?, travelers = ?, amount = ?, 
+        date_of_arrival = ?, date_of_departure = ?, travelers = ?, amount = ?,
         status = ? ");
 
         if( $req->execute(array($id, $appartment_name, $email, $first_name,
         $last_name, $city, $country, $phone_number, $date_of_arrival, $date_of_departure,
         $travelers, $amount, $status))){
                 $p = 1;
-                
-                
-                
+
+
+
                 ?>
 <script>
 alert('Merci pour cotre réservation, un mail de confirmation vous sera envoyé');
@@ -145,7 +148,7 @@ alert('Une erreur est survenue, merci de reesayer ultérieurement');
 //window.location.replace('liste-appartements.php');
 exit();
 </script>
-<?php 
+<?php
         }
 }
 
@@ -224,8 +227,8 @@ window.location.replace("gestion.php");
 exit();
 </script>
 <?php
-  
-       
+
+
 }
 
 //$results['appartments'] = $appartments;

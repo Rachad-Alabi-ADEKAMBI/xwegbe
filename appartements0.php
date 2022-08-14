@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<div id='app'>
+<?php
+/**
+ * Plugin Name: Liste des appartements
+ */
+
+ add_shortcode('list', 'getAllAppartments');
+ wp_enqueue_script('vue', 'https://unpkg.com/vue@3');
+ wp_enqueue_script('axios', 'https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js');
+
+ function getAllAppartments(){
+    echo("<div id='app'>
     <div class='container'>
 
     <div class='appartments'>
@@ -82,5 +83,13 @@
     </div>
 </div>
 
-</body>
-</html>
+
+
+        </div>");
+    wp_enqueue_script('app', plugin_dir_url(__FILE__). 'app.js');
+    wp_enqueue_style('', plugin_dir_url(__FILE__). 'style.css');
+
+ }
+ ?>
+
+
