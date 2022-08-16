@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <?php include 'header2.php'; ?>
+    <?php include 'header.php'; ?>
 
     <div class="top">
         <h1>Bienvenue sur <span>XWEGBE !</span></h1>
@@ -44,7 +44,7 @@
         </form>
     </div>
 
-    <div class="about-section">
+    <div class="about-section" id='about'>
         <h2 class="about-section__title">
             Xwegbe, 1er catalogue d'appartements meublés au Bénin
         </h2>
@@ -94,7 +94,7 @@
                         <span>40. 000 FCFA</span> / nuit
                     </div>
 
-                    <img src="public/images/img12.jpg" alt="">
+                    <img src="public/images/img5.jpg" alt="">
                 </div>
 
                 <h3>
@@ -117,7 +117,7 @@
             <div class="slide">
                 <div class="slide__img">
                     <div class="like">
-                        ()
+                    <i class="fas fa-heart"></i>
                     </div>
 
                     <div class="price">
@@ -125,11 +125,42 @@
                         <span>40. 000 FCFA</span> / nuit
                     </div>
 
+                    <img src="public/images/a1-4.jpg    " alt="">
+                </div>
+
+                <h3>
+                    Appartement 3
+                </h3>
+
+                <p class="details">
+                    Détails:
+                </p>
+
+                <p>
+                    <span>Chambres:</span>3
+                </p>
+
+                <p>
+                    <span>Equipements: </span>climatisaion, parking, wifi, Cuisine equipee
+                </p>
+            </div>
+
+            <div class="slide">
+                <div class="slide__img">
+                    <div class="like">
+                    <i class="fas fa-heart"></i>
+                    </div>
+
+                    <div class="price">
+                        à partir de: <br>
+                        <span>15. 000 FCFA</span> / nuit
+                    </div>
+
                     <img src="public/images/img12.jpg" alt="">
                 </div>
 
                 <h3>
-                    Appartement 1
+                    Appartement 2
                 </h3>
 
                 <p class="details">
@@ -148,19 +179,19 @@
             <div class="slide">
                 <div class="slide__img">
                     <div class="like">
-                        ()
+                    <i class="fas fa-heart"></i>
                     </div>
 
                     <div class="price">
                         à partir de: <br>
-                        <span>40. 000 FCFA</span> / nuit
+                        <span>60. 000 FCFA</span> / nuit
                     </div>
 
-                    <img src="public/images/img12.jpg" alt="">
+                    <img src="public/images/a3-1.jpg" alt="">
                 </div>
 
                 <h3>
-                    Appartement 1
+                    Appartement 4
                 </h3>
 
                 <p class="details">
@@ -168,42 +199,11 @@
                 </p>
 
                 <p>
-                    <span>Chambres:</span>2
+                    <span>Chambres:</span>4
                 </p>
 
                 <p>
-                    <span>Equipements: </span>climatisaion, parking, wifi
-                </p>
-            </div>
-
-            <div class="slide">
-                <div class="slide__img">
-                    <div class="like">
-                        ()
-                    </div>
-
-                    <div class="price">
-                        à partir de: <br>
-                        <span>40. 000 FCFA</span> / nuit
-                    </div>
-
-                    <img src="public/images/img12.jpg" alt="">
-                </div>
-
-                <h3>
-                    Appartement 1
-                </h3>
-
-                <p class="details">
-                    Détails:
-                </p>
-
-                <p>
-                    <span>Chambres:</span>2
-                </p>
-
-                <p>
-                    <span>Equipements: </span>climatisaion, parking, wifi
+                    <span>Equipements: </span>Entree privee, parking, wifi
                 </p>
             </div>
         </div>
@@ -301,6 +301,50 @@
 
 
         </div>
+    </div>
+
+
+    <div class="contact" id='contact'>
+        <form action='model.php?action=contact' class='' method='POST'>
+
+
+            <h3 class='subtitle'>
+                Contact
+            </h3> <br>
+
+            <div class='row'>
+                <div class='col'>Nom complet
+                    <input type='text' class='form-control' v-model='fullname' name='fullname'
+                        placeholder='Nom complet' required>
+                </div>
+            </div> <br>
+
+            <div class='row'>
+                <div class='col'>Email
+                    <input type='text' class='form-control' v-model='email' name='email'
+                        placeholder='Email' required>
+                </div>
+            </div> <br>
+
+            <div class='row'>
+                <div class='col'>Objet <br>
+                    <input type='number' class='form-control' name='subject' placeholder='Objet'
+                        required>
+                </div>
+            </div> <br>
+
+            <div class="row">
+                Message <br>
+                <textarea class='form-control' placeholder='Description' placeholder='Message'
+                id='exampleFormControlTextarea1' name='description' rows='3' v-model='message'>
+                </textarea>
+            </div>
+            <br>
+
+            <button class='view' type='submit' type='submit' onclick='message()'>
+                Envoyer
+            </button>
+        </form>
     </div>
 
     <?php include 'footer.php'; ?>

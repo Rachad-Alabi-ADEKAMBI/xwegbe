@@ -2,7 +2,7 @@
 <html lang='en'>
 
 <head>
-    <title>Appartements</title>
+    <title>Xwegbe - Nos appartements</title>
 
     <?php include 'meta.php'; ?>
 
@@ -10,7 +10,7 @@
 
 <body>
 
-    <?php include 'header2.php'; ?>
+    <?php include 'header.php'; ?>
 
     <div id='app'><br>
 
@@ -97,23 +97,20 @@
             </form>
         </div>
 
-        <div class="appartment" v-if='showDetails'>
+        <div class="appartment" v-if='showDetails' v-for='detail in details' key='detail.id'>
             <div class="appartment__top">
                 <div class="appartment__top__left">
-                    <div class="retour">
+                    <div class="retour" @click='getAllFreeAppartments()'>
                         Retour
                     </div>
 
                     <h1 class="title">
-                        appartement 1
+                        {{ detail.name }}
                     </h1> <br>
 
                     <div class="short__descr">
-                        Lorem
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Temporibus ad quisquam eveniet maiores tempora alias, accusantium mollitia optio quam.
-                        blanditiis culpa debitis voluptate, doloremque suscipit ipsum sapiente voluptatibus,
-                        quasi aut? <br><br>
+                        {{ detail.short_description }}
+                    <br>
 
                         <h2>
                             Le logement
@@ -124,17 +121,19 @@
 
                             <ul>
                                 <li>
-                                    Lorem, ipsum dolor sit amet
-                                    consectetur adipisicing elit. Neque,  </li>
-
-                                 <li>
-                                    Lorem, ipsum dolor sit amet consectetur
-                                     adipisicing elit. Neque, ipsam vero
-                                      provident sit sequi tempore</li>
+                                  {{ detail.text1_1 }}
+                                </li>
 
                                 <li>
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, ipsam vero provident sit sequi tempore ea
-                                    consectetur,
+                                   {{ detail.text1_2 }}
+                                </li>
+
+                                <li>
+                                {{ detail.text1_3 }}
+                                </li>
+
+                                <li>
+                                {{ detail.text1_4 }}
                                 </li>
                             </ul>
                         </p>
@@ -146,22 +145,25 @@
                         <p>
                             <ul>
                                 <li>
-                                    Lorem, ipsum dolor sit amet
-                                    consectetur adipisicing elit. Neque, </li>
+                                {{ detail.text2_1 }}
+                                </li>
 
                                     <li>
-                                        Lorem, ipsum dolor sit amet
-                                        consectetur adipisicing elit. Neque, </li>
+                                    {{ detail.text2_1 }}
+                                    </li>
 
                                         <li>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Neque, </li>
+                                        {{ detail.text2_3 }}
+                                        </li>
 
+                                        <li>
+                                        {{ detail.text2_4 }}
+                                        </li>
                             </ul>
                         </p>
 
                         <p>
-                           <span>Accès des voyageurs:</span> <br>
+                           <h2>Accès des voyageurs:</h2>
                             Vous aurez accès à toutes les chambres de l'appartement
                         </p>
 
@@ -270,27 +272,31 @@
 
             <div class="gallery">
                     <div class="gallery__top">
-                        <a href="public/images/image2.jpg">
-                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        <a href="">
+                            <img :src='getImgUrl(detail.picture_1)' alt="Maison meublé au Bénin" title="appartement meublé au Bénin">
                         </a>
 
-                        <a href="public/images/image2.jpg">
-                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                        <a href="">
+                            <img :src='getImgUrl(detail.picture_2)' alt="Maison meublé au Bénin" title="appartement meublé au Bénin">
                         </a>
-                            <a href="public/images/image2.jpg">
-                                <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
-                            </a>
+
+                        <a href="p">
+                            <img :src='getImgUrl(detail.picture_3)' alt="Maison meublé au Bénin" title="appartement meublé au Bénin">
+                        </a>
+
                     </div>
 
                     <div class="gallery__bottom">
-                        <a href="public/images/image2.jpg">
-                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+                      <a href="public/images/getimgUrl(detail.picture_4)">
+                            <img :src='getImgUrl(detail.picture_4)' alt="Maison meublé au Bénin" title="appartement meublé au Bénin">
                         </a>
 
-                        <a href="public/images/image2.jpg">
-                            <img src="public/images/image2.jpg" alt="Maison mwublés au Bénin" title="appartements meublés au Bénin">
+
+                       <a href="public/images/getimgUrl(detail.picture_5)">
+                            <img :src='getImgUrl(detail.picture_5)' alt="Maison meublé au Bénin" title="appartement meublé au Bénin">
                         </a>
-                    </div>
+
+                </div>
             </div>
         </div>
 
@@ -377,7 +383,7 @@
                 showBooking: false,
                 showDetails: false,
                 showResults: false,
-                details: {},
+                details: [],
                 showAllFreeAppartments: true,
                 query_date_of_arrival: '',
                 query_date_of_departure: '',
@@ -406,6 +412,7 @@
                 this.showBooking = false;
                 this.showResults = false;
                 this.showBooking = false;
+                this.showDetails = false;
             },
             getAppartment(appartment_id) {
                 axios.get('model.php?action=getAppartment&id=' + appartment_id).then(
